@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\AboutPageController;
 use App\Http\Controllers\Auth\DashboardController;
 use App\Http\Controllers\Auth\ContactPageController;
+use App\Http\Controllers\Auth\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,6 +71,9 @@ Route::resource('about-us', AboutPageController::class);
 Route::resource('my_uploads', DownloadController::class);
 Route::get('my_uploads/{uploads}/delete', [DownloadController::class, 'destroy']);
 
+Route::resource('events', EventController::class);
+Route::get('events/{events}/delete', [EventController::class, 'destroy']);
+
 //Website
 
 Route::controller(HomeController::class)->group(function(){
@@ -86,5 +90,6 @@ Route::controller(HomeController::class)->group(function(){
     Route::get('news/{news_id}', 'view_news');
     Route::get('stuff', 'stuff');
     Route::get('board', 'board_members');
+    Route::get('calender', 'calender');
 });
 

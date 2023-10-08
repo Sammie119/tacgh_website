@@ -5,6 +5,7 @@ use App\Models\Asset;
 use App\Models\ContactPage;
 use App\Models\Gallery;
 use App\Models\User;
+use App\Models\VWEvent;
 
 if(!function_exists("get_logged_in_user_id")){
     function get_logged_in_user_id():int
@@ -72,5 +73,29 @@ if(!function_exists("get_about")){
     }
 }
 
+if(!function_exists("get_event")){
+    function get_event($num = null): array
+    {
+        $events = VWEvent::where('expired_event', 1)->limit($num)->get();
 
+        if($events){
+            return $events->toArray();
+        }
 
+        return [];
+    }
+}
+
+if(!function_exists("get_date_time_format")){
+    function get_date_time_format($date_time, $type = 'date'): string
+    {
+        if($type == "time"){
+            return date('h:i A', strtotime($date_time));
+        }
+        elseif ($type == "date") {
+            return date('F d, Y', strtotime($date_time));
+        }
+
+        return -1;
+    }
+}

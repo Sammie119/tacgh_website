@@ -159,7 +159,11 @@
             </a>
           </li> --}}
           <li class="nav-item">
-            <a href="#" class="nav-link {{ request()->is('appearance*') ? 'active' : '' }}">
+            <a href="#" class="nav-link 
+              {{ request()->is('about-us*') ? 'active' : '' }}
+              {{ request()->is('contacts*') ? 'active' : '' }}
+              {{ request()->is('my_uploads*') ? 'active' : '' }}
+              ">
               <i class="nav-icon fas fa-eye"></i>
               <p>
                 Pages
@@ -175,19 +179,19 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/about-us" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>About page</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="/contacts" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Contact Page</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="/my_uploads" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Download Page</p>
                 </a>
@@ -198,40 +202,7 @@
                   <p>News</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Header</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Footer</p>
-                </a>
-              </li>
             </ul>
-          </li>
-
-          <li class="nav-item">
-            <a href="/about-us" class="nav-link {{ request()->is('about-us*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-paperclip"></i>
-              <p>About Page</p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="/contacts" class="nav-link {{ request()->is('contacts*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-map-marker-alt"></i>
-              <p>Contact Page</p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="/my_uploads" class="nav-link {{ request()->is('my_uploads*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Uploads</p>
-            </a>
           </li>
 
           <li class="nav-item">
@@ -240,6 +211,14 @@
               <p>Contact Form</p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="/events" class="nav-link {{ request()->is('events*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-table"></i>
+              <p>Events</p>
+            </a>
+          </li>
+
           {{-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>

@@ -44,7 +44,7 @@
                                         <td rowspan="2"><a href="/downloads/{{ $file->id }}"><div class="icon"><i class="bx bx-download"></i></div></https:></td>
                                     </tr>
                                     <tr>
-                                        <td style="padding-left: 2%">{{ $file->file_ext }}</td>
+                                        <td style="padding-left: 2%"><small class="text-muted">{{ $file->file_ext }}</small></td>
                                     </tr>
                                 </table>
                             </div>

@@ -107,4 +107,9 @@ class HomeController extends Controller
     {
         return view('website.board_members');
     }
+
+    public function calender()
+    {
+        return view('website.calender');
+    }
 }

@@ -3,6 +3,7 @@
 <style>
 	.event-header {
 		color: #37517e;
+		margin-top: -10;
 	}
 </style>
 
@@ -328,17 +329,31 @@
                 </div>
         
                 <div class="row content">
-                    <div class="col-lg-4">
-						<p class="fst-normal">{{ date('Y-m-d') }}</p>
-						<h3 class="event-header">Lorem Ipsum</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua.
-                        </p>
-                    </div>
+					@forelse (get_event(3) as $event)
+						<div class="col-lg-4">
+							<small class="text-muted">
+								<ul class="list-inline">
+									<li class="list-inline-item"><i class="bi bi-calendar"></i> {{ ($event['start_date'] == $event['end_date']) ? get_date_time_format($event['start_date']) : get_date_time_format($event['start_date'])." - ".get_date_time_format($event['end_date']) }}</li>
+									<li class="list-inline-item"><i class="bi bi-clock"></i> {{ get_date_time_format($event['start_time'], 'time') }}</li> <br>
+									<li class="list-inline-item mt-2"><i class="bi bi-geo-alt"></i> {{ $event['venue'] }}</li>
+								</ul>
+							</small>
+							<h3 class="event-header">{{ $event['name'] }}</h3>
+							<p>{{ $event['description'] }}</p>
+						</div>
+					@empty
+						<div class="col-12">
+							No Event
+						</div>
+					@endforelse
 
-					<div class="col-lg-4">
-						<p class="fst-normal">{{ date('Y-m-d') }}</p>
+					{{-- <div class="col-lg-4">
+						<small class="text-muted">
+							<ul class="list-inline">
+								<li class="list-inline-item"><i class="bi bi-calendar"></i> {{ date('Y-m-d') }} - {{ date('Y-m-d') }}</li>
+								<li class="list-inline-item"><i class="bi bi-geo-alt"></i> Cafe</li>
+							</ul>
+						</small>
 						<h3 class="event-header">Lorem Ipsum</h3>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -347,16 +362,26 @@
                     </div>
 
                     <div class="col-lg-4 pt-4 pt-lg-0">
-						<p class="fst-normal">{{ date('Y-m-d') }}</p>
+						<small class="text-muted">
+							<ul class="list-inline">
+								<li class="list-inline-item"><i class="bi bi-calendar"></i> {{ date('Y-m-d') }} - {{ date('Y-m-d') }}</li>
+								<li class="list-inline-item"><i class="bi bi-geo-alt"></i> Cafe</li>
+							</ul>
+						</small>
 						<h3 class="event-header">Lorem Ipsum</h3>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                             magna aliqua.
                         </p>
-                    </div>
+                    </div> --}}
+
+					<div class="col-12 text-center mt-3">
+						<a href="/calender" class="btn-learn-more">View Calender</a>
+					</div>
                 </div>
-        
+
             </div>
+
 		</section><!-- End Events Section -->
 	
 	</main><!-- End #main -->
