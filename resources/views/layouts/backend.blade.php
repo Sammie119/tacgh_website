@@ -213,6 +213,13 @@
           </li>
 
           <li class="nav-item">
+            <a href="/staff" class="nav-link {{ request()->is('staff*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-users"></i>
+              <p>Staff</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="/events" class="nav-link {{ request()->is('events*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-table"></i>
               <p>Events</p>

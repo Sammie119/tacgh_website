@@ -100,7 +100,7 @@ class HomeController extends Controller
 
     public function stuff()
     {
-        return view('website.stuff');
+        return view('website.staff');
     }
     
     public function board_members()

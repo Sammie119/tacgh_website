@@ -13,6 +13,7 @@ use App\Http\Controllers\Auth\AboutPageController;
 use App\Http\Controllers\Auth\DashboardController;
 use App\Http\Controllers\Auth\ContactPageController;
 use App\Http\Controllers\Auth\EventController;
+use App\Http\Controllers\Auth\StaffController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +74,9 @@ Route::get('my_uploads/{uploads}/delete', [DownloadController::class, 'destroy']
 
 Route::resource('events', EventController::class);
 Route::get('events/{events}/delete', [EventController::class, 'destroy']);
+
+Route::resource('staff', StaffController::class);
+Route::get('staff/{staff}/delete', [StaffController::class, 'destroy']);
 
 //Website
 

@@ -8,7 +8,7 @@
 
         <div class="row">
             <div class="col-lg-12 text-center text-lg-start">
-                <h1 class="text-center text-white text-bold">Board Members</h1>
+                <h1 class="text-center text-white text-bold">Staff</h1>
                 {{-- <p class="text-center"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> --}}
             </div>
         </div>
@@ -17,14 +17,14 @@
     </section>
 
     <main id="main">
-        
+      
       <!-- ======= Team Section ======= -->
       <section id="team" class="team section-bg">
         <div class="container" data-aos="fade-up">
     
         <div class="row" style="margin-top: -2%">
     
-          @forelse (get_stuff('Board Member') as $staff)
+          @forelse (get_stuff() as $staff)
             <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="100">
               <div class="member d-flex align-items-start">
                 <div class="pic"><img src="{{ asset($staff['image_path']) }}" class="img-fluid" alt=""></div>

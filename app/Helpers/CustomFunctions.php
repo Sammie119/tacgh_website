@@ -4,6 +4,7 @@ use App\Models\AboutPage;
 use App\Models\Asset;
 use App\Models\ContactPage;
 use App\Models\Gallery;
+use App\Models\Staff;
 use App\Models\User;
 use App\Models\VWEvent;
 
@@ -80,6 +81,19 @@ if(!function_exists("get_event")){
 
         if($events){
             return $events->toArray();
+        }
+
+        return [];
+    }
+}
+
+if(!function_exists("get_stuff")){
+    function get_stuff($status = 'staff'): array
+    {
+        $staff = Staff::where('is_staff_or_board', $status)->orderBy('name')->get();
+
+        if($staff){
+            return $staff->toArray();
         }
 
         return [];
