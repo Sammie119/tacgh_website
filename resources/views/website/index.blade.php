@@ -112,7 +112,7 @@
 	
 		<!-- ======= Why Us Section ======= -->
 		<section id="why-us" class="why-us">
-		  <div class="container-fluid" data-aos="fade-up">
+		  <div class="container-fluid" data-aos="fade-up" style="margin-top: -4%; margin-bottom: -5%">
 	
 			<div class="row">
 	

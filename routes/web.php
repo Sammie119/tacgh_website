@@ -94,6 +94,8 @@ Route::controller(HomeController::class)->group(function(){
     Route::get('news/{news_id}', 'view_news');
     Route::get('stuff', 'stuff');
     Route::get('board', 'board_members');
+    Route::get('committee', 'committee_members');
+    Route::get('old_members', 'former_board_members');
     Route::get('calender', 'calender');
 });
 

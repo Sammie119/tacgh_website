@@ -108,6 +108,16 @@ class HomeController extends Controller
         return view('website.board_members');
     }
 
+    public function former_board_members()
+    {
+        return view('website.old_board_members');
+    }
+
+    public function committee_members()
+    {
+        return view('website.committee_members');
+    }
+
     public function calender()
     {
         return view('website.calender');

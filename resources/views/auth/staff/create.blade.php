@@ -170,8 +170,10 @@
                                     <label for="is_staff_or_board">Is Staff or Board Member</label>
                                     <select id="is_staff_or_board" class="form-control @error('is_staff_or_board') is-invalid @enderror" name="is_staff_or_board" required>
                                         <option selected disabled>--Select--</option>
-                                        <option @selected($staff->is_staff_or_board == 'Staff')>Staff</option>
                                         <option @selected($staff->is_staff_or_board == 'Board Member')>Board Member</option>
+                                        <option @selected($staff->is_staff_or_board == 'Committee Member')>Committee Member</option>
+                                        <option @selected($staff->is_staff_or_board == 'Former Board Member')>Former Board Member</option>
+                                        <option @selected($staff->is_staff_or_board == 'Staff')>Staff</option>
                                     </select>
         
                                     @error('is_staff_or_board')
@@ -345,8 +347,10 @@
                                     <label for="is_staff_or_board">Is Staff or Board Member</label>
                                     <select id="is_staff_or_board" class="form-control @error('is_staff_or_board') is-invalid @enderror" name="is_staff_or_board" required>
                                         <option selected disabled>--Select--</option>
-                                        <option>Staff</option>
                                         <option>Board Member</option>
+                                        <option>Committee Member</option>
+                                        <option>Former Board Member</option>
+                                        <option>Staff</option>
                                     </select>
         
                                     @error('is_staff_or_board')

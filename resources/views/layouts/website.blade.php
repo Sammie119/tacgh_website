@@ -80,9 +80,10 @@
 					<li><a class="nav-link scrollto {{ request()->is('about') ? 'active' : '' }}" href="/about">About Us</a></li>
 					<li><a class="nav-link scrollto {{ request()->is('services') ? 'active' : '' }}" href="/services">Services</a></li>
 					<li><a class="nav-link scrollto {{ request()->is('news*') ? 'active' : '' }}" href="/news">News</a></li>
-					<li class="dropdown"><a href="#" class="{{ request()->is('stuff') ? 'active' : '' }} {{ request()->is('board') ? 'active' : '' }}"><span>Team</span> <i class="bi bi-chevron-down"></i></a>
+					<li class="dropdown"><a href="#" class="{{ request()->is('stuff') ? 'active' : '' }} {{ request()->is('board') ? 'active' : '' }} {{ request()->is('committee') ? 'active' : '' }}"><span>Team</span> <i class="bi bi-chevron-down"></i></a>
 						<ul>
 						<li><a href="/board">Board of Members</a></li>
+						<li><a href="/committee">Committee Members</a></li>
 						<li><a href="/stuff">Staff</a></li>
 						</ul>
 					</li>
