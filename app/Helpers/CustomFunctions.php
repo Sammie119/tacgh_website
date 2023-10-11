@@ -4,6 +4,8 @@ use App\Models\AboutPage;
 use App\Models\Asset;
 use App\Models\ContactPage;
 use App\Models\Gallery;
+use App\Models\Post;
+use App\Models\ServicePage;
 use App\Models\Staff;
 use App\Models\User;
 use App\Models\VWEvent;
@@ -111,5 +113,44 @@ if(!function_exists("get_date_time_format")){
         }
 
         return -1;
+    }
+}
+
+if(!function_exists("get_asset_path")){
+    function get_asset_path($id): string
+    {
+        $asset = Asset::find($id);
+
+        if($asset){
+            return $asset->path;
+        }
+
+        return -1;
+    }
+}
+
+if(!function_exists("get_services")){
+    function get_services(): array
+    {
+        $services = ServicePage::all();
+
+        if($services){
+            return $services->toArray();
+        }
+
+        return [];
+    }
+}
+
+if(!function_exists("get_posts")){
+    function get_posts($num = null): array
+    {
+        $posts = Post::orderByDesc('id')->limit($num)->get();
+
+        if($posts){
+            return $posts->toArray();
+        }
+
+        return [];
     }
 }

@@ -54,7 +54,7 @@
                                 <td>{{ $staff->contact }}</td>
                                 <td>{{ $staff->position }}</td>
                                 <td>{{ $staff->is_staff_or_board }}</td>
-                                <td><img src="{{ $staff->image_path }}" alt="{{ $staff->name }}" width="80"></td>
+                                <td><img src="{{ asset(get_asset_path($staff->asset_id)) }}" alt="{{ $staff->name }}" width="80"></td>
                                 <td>
                                   <a href="staff/{{ $staff->id }}/edit" class="btn btn-sm btn-primary"><i class="nav-icon fas fa-edit"></i></a>
                                   <a href="staff/{{ $staff->id }}/delete" onclick="return confirm('This record will be deleted!! Are you sure?')" class="btn btn-sm btn-danger"><i class="nav-icon fas fa-trash"></i></a>

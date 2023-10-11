@@ -17,17 +17,17 @@
     </section>
 
     <main id="main">
-      
+
       <!-- ======= Team Section ======= -->
       <section id="team" class="team section-bg">
         <div class="container" data-aos="fade-up">
-    
+
         <div class="row" style="margin-top: -2%">
-    
+
           @forelse (get_stuff() as $staff)
             <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="100">
               <div class="member d-flex align-items-start">
-                <div class="pic"><img src="{{ asset($staff['image_path']) }}" class="img-fluid" alt=""></div>
+                <div class="pic"><img src="{{ asset(get_asset_path($staff['asset_id'])) }}" class="img-fluid" alt=""></div>
                 <div class="member-info">
                   <h4>{{ $staff['name'] }}</h4>
                   <span>{{ $staff['position'] }}</span>
@@ -45,12 +45,12 @@
           @empty
             <div class="col-12">No Data Found</div>
           @endforelse
-    
+
         </div>
-    
+
         </div>
       </section><!-- End Team Section -->
 
     </main>
-    
+
 @endsection

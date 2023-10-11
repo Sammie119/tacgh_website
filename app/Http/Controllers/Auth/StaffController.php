@@ -44,14 +44,15 @@ class StaffController extends Controller
             // 'image_path' => [],
         ])->validate();
 
-        $image = $request->file('file');
-        $input['file'] = 'staff_'.date('Y')."_".time().'.'.$image->getClientOriginalExtension();
-        
-        $destinationPath = public_path('/uploads');
-        $imgFile = Image::make($image->getRealPath());
-        $imgFile->resize(600, 600, function ($constraint) {
-		    $constraint->aspectRatio();
-		})->save($destinationPath.'/'.$input['file']);
+        $data = [
+            'name' => "Staff",
+            'description' => $request['name'],
+            'file' => $request['file'],
+            'width' => 600,
+            'height' => 600,
+        ];
+
+        $asset = $this->save_asset_image($data);
 
         Staff::firstOrCreate(
             [
@@ -67,7 +68,7 @@ class StaffController extends Controller
                 'twitter_address' => $request['twitter'],
                 'instagram_address' => $request['instagram'],
                 'linkedin_address' => $request['linked_in'],
-                'image_path' => 'uploads/'.$input['file'],
+                'asset_id' => $asset->id,
                 'created_by' => get_logged_in_user_id(),
                 'updated_by' => get_logged_in_user_id(),
         ]);
@@ -109,56 +110,33 @@ class StaffController extends Controller
             // 'image_path' => [],
         ])->validate();
 
-        if(!empty($request->file('file'))){
+        $staff = Staff::find($id);
 
-            $staff = Staff::find($id);
+        $data = [
+            'name' => "Staff",
+            'description' => $request['name'],
+            'file' => $request['file'],
+            'width' => 600,
+            'height' => 600,
+        ];
 
-            if(file_exists(public_path($staff->image_path))){
-                unlink(public_path($staff->image_path));
-            }
+        $this->update_asset_image($staff->asset_id, $data);
 
-            $image = $request->file('file');
-            $input['file'] = 'staff_'.date('Y')."_".time().'.'.$image->getClientOriginalExtension();
-            
-            $destinationPath = public_path('/uploads');
-            $imgFile = Image::make($image->getRealPath());
-            $imgFile->resize(600, 600, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save($destinationPath.'/'.$input['file']);
-    
-            $staff->update(
-                [
-                    'name' => $request['name'],
-                    'description' => $request['description'],
-                    'position' => $request['position'],
-                    'contact' => $request['contact'],
-                    'is_staff_or_board' => $request['is_staff_or_board'],
-                    'whatsapp_address' => $request['whatsapp'],
-                    'facebook_address' => $request['facebook'],
-                    'twitter_address' => $request['twitter'],
-                    'instagram_address' => $request['instagram'],
-                    'linkedin_address' => $request['linked_in'],
-                    'image_path' => 'uploads/'.$input['file'],
-                    'updated_by' => get_logged_in_user_id(),
-            ]);
-        }
-
-        else {
-            Staff::find($id)->update(
-                [
-                    'name' => $request['name'],
-                    'description' => $request['description'],
-                    'position' => $request['position'],
-                    'contact' => $request['contact'],
-                    'is_staff_or_board' => $request['is_staff_or_board'],
-                    'whatsapp_address' => $request['whatsapp'],
-                    'facebook_address' => $request['facebook'],
-                    'twitter_address' => $request['twitter'],
-                    'instagram_address' => $request['instagram'],
-                    'linkedin_address' => $request['linked_in'],
-                    'updated_by' => get_logged_in_user_id(),
-            ]);
-        }
+        $staff->update(
+            [
+                'name' => $request['name'],
+                'description' => $request['description'],
+                'position' => $request['position'],
+                'contact' => $request['contact'],
+                'is_staff_or_board' => $request['is_staff_or_board'],
+                'whatsapp_address' => $request['whatsapp'],
+                'facebook_address' => $request['facebook'],
+                'twitter_address' => $request['twitter'],
+                'instagram_address' => $request['instagram'],
+                'linkedin_address' => $request['linked_in'],
+                'asset_id' => $staff->asset_id,
+                'updated_by' => get_logged_in_user_id(),
+        ]);
 
         return redirect('staff')->with('success','Staff Updated successfully');
     }

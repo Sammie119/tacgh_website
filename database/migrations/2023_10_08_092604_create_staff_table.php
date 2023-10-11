@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('twitter_address')->nullable();
             $table->string('instagram_address')->nullable();
             $table->string('linkedin_address')->nullable();
-            $table->string('image_path')->nullable();
+            $table->foreignId('asset_id')->constrained();
             $table->bigInteger('created_by');
             $table->bigInteger('updated_by');
             $table->timestamps();

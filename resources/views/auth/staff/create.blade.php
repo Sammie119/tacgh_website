@@ -69,7 +69,7 @@
                         <div class="form-group">
                             <label for="exampleInputFile">Staff Picture</label>
                             <input id="file" type="file" class="form-control @error('file') is-invalid @enderror" name="file">
-                            <img alt="{{ $staff->staff_name }}" src="{{ asset($staff->image_path) }}" width="100">
+                            <img alt="{{ $staff->staff_name }}" src="{{ asset(get_asset_path($staff->asset_id)) }}" width="100">
                             @error('file')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -82,7 +82,7 @@
                                 <div class="form-group">
                                     <label for="contact">Staff Contact</label>
                                     <input id="contact" type="text" class="form-control @error('contact') is-invalid @enderror" name="contact" value="{{ $staff->contact }}" required autocomplete="contact">
-        
+
                                     @error('contact')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -94,7 +94,7 @@
                                 <div class="form-group">
                                     <label for="position">Staff Position</label>
                                     <input id="position" type="text" class="form-control @error('position') is-invalid @enderror" name="position" value="{{ $staff->position }}" required autocomplete="position">
-        
+
                                     @error('position')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -107,7 +107,7 @@
                                 <div class="form-group">
                                     <label for="whatsapp">Staff Whatsapp Number</label>
                                     <input id="whatsapp" type="text" class="form-control @error('whatsapp') is-invalid @enderror" name="whatsapp" value="{{ $staff->whatsapp_address }}" required autocomplete="whatsapp">
-        
+
                                     @error('whatsapp')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -119,7 +119,7 @@
                                 <div class="form-group">
                                     <label for="facebook">Staff Facebook Account</label>
                                     <input id="facebook" type="text" class="form-control @error('facebook') is-invalid @enderror" name="facebook" value="{{ $staff->facebook_address }}" autocomplete="facebook">
-        
+
                                     @error('facebook')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -132,7 +132,7 @@
                                 <div class="form-group">
                                     <label for="instagram">Staff Instagram Account</label>
                                     <input id="instagram" type="text" class="form-control @error('instagram') is-invalid @enderror" name="instagram" value="{{ $staff->instagram_address }}" autocomplete="instagram">
-        
+
                                     @error('instagram')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -144,7 +144,7 @@
                                 <div class="form-group">
                                     <label for="twitter">Staff Twitter Account</label>
                                     <input id="twitter" type="text" class="form-control @error('twitter') is-invalid @enderror" name="twitter" value="{{ $staff->twitter_address }}" autocomplete="twitter">
-        
+
                                     @error('twitter')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -157,7 +157,7 @@
                                 <div class="form-group">
                                     <label for="linked_in">Staff Linked In Account</label>
                                     <input id="linked_in" type="text" class="form-control @error('linked_in') is-invalid @enderror" name="linked_in" value="{{ $staff->linkedin_address }}" autocomplete="linked_in">
-        
+
                                     @error('linked_in')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -175,7 +175,7 @@
                                         <option @selected($staff->is_staff_or_board == 'Former Board Member')>Former Board Member</option>
                                         <option @selected($staff->is_staff_or_board == 'Staff')>Staff</option>
                                     </select>
-        
+
                                     @error('is_staff_or_board')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -187,7 +187,7 @@
 
                     </div>
                     <!-- /.card-body -->
-    
+
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
@@ -259,7 +259,7 @@
                                 <div class="form-group">
                                     <label for="contact">Staff Contact</label>
                                     <input id="contact" type="text" class="form-control @error('contact') is-invalid @enderror" name="contact" value="{{ old('contact') }}" required autocomplete="contact">
-        
+
                                     @error('contact')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -271,7 +271,7 @@
                                 <div class="form-group">
                                     <label for="position">Staff Position</label>
                                     <input id="position" type="text" class="form-control @error('position') is-invalid @enderror" name="position" value="{{ old('position') }}" required autocomplete="position">
-        
+
                                     @error('position')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -284,7 +284,7 @@
                                 <div class="form-group">
                                     <label for="whatsapp">Staff Whatsapp Number</label>
                                     <input id="whatsapp" type="text" class="form-control @error('whatsapp') is-invalid @enderror" name="whatsapp" value="{{ old('whatsapp') }}" required autocomplete="whatsapp">
-        
+
                                     @error('whatsapp')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -296,7 +296,7 @@
                                 <div class="form-group">
                                     <label for="facebook">Staff Facebook Account</label>
                                     <input id="facebook" type="text" class="form-control @error('facebook') is-invalid @enderror" name="facebook" value="{{ old('facebook') }}" autocomplete="facebook">
-        
+
                                     @error('facebook')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -309,7 +309,7 @@
                                 <div class="form-group">
                                     <label for="instagram">Staff Instagram Account</label>
                                     <input id="instagram" type="text" class="form-control @error('instagram') is-invalid @enderror" name="instagram" value="{{ old('instagram') }}" autocomplete="instagram">
-        
+
                                     @error('instagram')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -321,7 +321,7 @@
                                 <div class="form-group">
                                     <label for="twitter">Staff Twitter Account</label>
                                     <input id="twitter" type="text" class="form-control @error('twitter') is-invalid @enderror" name="twitter" value="{{ old('twitter') }}" autocomplete="twitter">
-        
+
                                     @error('twitter')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -334,7 +334,7 @@
                                 <div class="form-group">
                                     <label for="linked_in">Staff Linked In Account</label>
                                     <input id="linked_in" type="text" class="form-control @error('linked_in') is-invalid @enderror" name="linked_in" value="{{ old('linked_in') }}" autocomplete="linked_in">
-        
+
                                     @error('linked_in')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -352,7 +352,7 @@
                                         <option>Former Board Member</option>
                                         <option>Staff</option>
                                     </select>
-        
+
                                     @error('is_staff_or_board')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -364,7 +364,7 @@
 
                     </div>
                     <!-- /.card-body -->
-    
+
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
@@ -375,10 +375,10 @@
         </section>
 
     @endisset
-    
-    
+
+
 </div>
-    
+
 @endsection
 
 

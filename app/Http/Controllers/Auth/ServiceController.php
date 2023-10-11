@@ -74,7 +74,8 @@ class ServiceController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $service = ServicePage::find($id);
+        return view('auth.services_page.create', ['service' => $service]);
     }
 
     /**
@@ -82,7 +83,32 @@ class ServiceController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        Validator::make($request->all(), [
+            'title' => ['required', 'max:255'],
+            'description' => ['required'],
+            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg', 'max:2048'],
+        ])->validate();
+
+        $service = ServicePage::find($id);
+
+        $data = [
+            'name' => "Service",
+            'description' => $request['title'],
+            'file' => $request['file'],
+            'width' => 1200,
+            'height' => 900,
+        ];
+
+        $this->update_asset_image($service->asset_id, $data);
+
+        $service->update([
+            'title' => $request['title'],
+            'asset_id' => $service->asset_id,
+            'description' => $request['description'],
+            'updated_by' => get_logged_in_user_id(),
+        ]);
+
+        return redirect('my_service')->with('success','Service Created successfully');
     }
 
     /**
@@ -90,6 +116,12 @@ class ServiceController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $service = ServicePage::find($id);
+
+        $this->delete_asset_image($service->asset_id);
+
+        $service->delete();
+
+        return redirect('my_service')->with('success','Service Deleted successfully');
     }
 }

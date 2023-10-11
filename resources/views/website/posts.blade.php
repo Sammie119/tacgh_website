@@ -1,5 +1,12 @@
 @extends('layouts.website')
 
+<style>
+	.event-header {
+		color: #37517e;
+		margin-top: -10;
+	}
+</style>
+
 @section('content')
 
  <!-- ======= Hero Section ======= -->
@@ -16,35 +23,30 @@
         </div>
     </section>
 
-  <main id="main">
-    <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
-        <div class="container" data-aos="fade-up">
-  
-          <div class="row content">
-            <div class="col-lg-6">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
-              </p>
-              <ul>
-                <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-                <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-                <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-              </ul>
+    <main id="main">
+
+        <!-- ======= News Section ======= -->
+		<section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row content" style="margin-bottom: -5%">
+                    @forelse (get_posts() as $post)
+                        <div class="col-lg-6 mb-2">
+                            <h3 class="event-header">{{ $post['title'] }}</h3>
+                            <p>{{ $post['description'] }}</p>
+                            <a href="news/{{ $post['id'] }}" class="btn-learn-more mb-4">Read More</a>
+                        </div>
+                    @empty
+                        <div>
+                            No Post Found
+                        </div>
+                    @endforelse
+
+                </div>
+
             </div>
-            <div class="col-lg-6 pt-4 pt-lg-0">
-              <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              <a href="#" class="btn-learn-more">Learn More</a>
-            </div>
-          </div>
-  
-        </div>
-      </section><!-- End About Us Section -->
-  </main>
+		</section><!-- End News Section -->
+
+    </main>
 
 @endsection

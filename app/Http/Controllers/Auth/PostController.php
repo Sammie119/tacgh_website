@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderByDesc('id')->get();
 
         return view('auth.posts.index', ['posts' => $posts]);
     }
@@ -25,8 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $cat = Category::all();
-        return view('auth.posts.create', ['cat' => $cat]);
+        return view('auth.posts.create');
     }
 
     /**
@@ -35,23 +34,23 @@ class PostController extends Controller
     public function store(Request $request)
     {
         Validator::make($request->all(), [
-            'category_id' => ['required', 'integer'],
+            // 'category_id' => ['required', 'integer'],
             'title' => ['required', 'string'],
             'description' => ['required', 'string', 'max:255'],
             'body' => ['required'],
-            'is_published' => ['required'],
+            'is_publish' => ['required'],
         ])->validate();
 
-        // Post::firstOrCreate([
-        //     'category_id' => $request->cat_id,
-        //     'gallery_id' => ,
-        //     'title' => $request->title,
-        //     'description' => $request->description,
-        //     'body' => $request->body,
-        //     'is_published' => ,
-        //     'created_by' => get_logged_in_user_id(),
-        //     'updated_by' => get_logged_in_user_id(),,
-        // ]);
+        Post::firstOrCreate([
+            'title' => $request->title,
+            'description' => $request->description,
+            'body' => $request->body,
+            'is_published' => $request->is_publish,
+            'created_by' => get_logged_in_user_id(),
+            'updated_by' => get_logged_in_user_id(),
+        ]);
+
+        return redirect('posts')->with('success','Posts Created successfully');
     }
 
     /**
@@ -67,7 +66,8 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $post = Post::find($id);
+        return view('auth.posts.create', ['post' => $post]);
     }
 
     /**
@@ -75,7 +75,23 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        Validator::make($request->all(), [
+            // 'category_id' => ['required', 'integer'],
+            'title' => ['required', 'string'],
+            'description' => ['required', 'string', 'max:255'],
+            'body' => ['required'],
+            'is_publish' => ['required'],
+        ])->validate();
+
+        Post::find($id)->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'body' => $request->body,
+            'is_published' => $request->is_publish,
+            'updated_by' => get_logged_in_user_id(),
+        ]);
+
+        return redirect('posts')->with('success','Posts Updated successfully');
     }
 
     /**
@@ -83,6 +99,10 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $post = Post::find($id);
+
+        $post->delete();
+
+        return back()->with('success','Post Deleted successfully');
     }
 }

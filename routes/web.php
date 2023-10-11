@@ -27,14 +27,6 @@ use App\Http\Controllers\Auth\StaffController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('website.index');
-// });
-
-Route::get('/single', function () {
-    return view('website.single');
-});
-
 Auth::routes();
 
 Route::controller(DashboardController::class)->group(function() {

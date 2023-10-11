@@ -38,9 +38,9 @@
                         <thead>
                           <tr>
                             <th style="width: 20px">#</th>
-                            <th>Name</th>
+                            <th>Title</th>
                             <th>Description</th>
-                            <th>Subject</th>
+                            <th>Image</th>
                             <th>Actions</th>
                           </tr>
                         </thead>
@@ -48,12 +48,12 @@
                             @forelse ($services as $key => $service)
                             <tr>
                                 <td>{{ ++$key }}</td>
-                                <td>{{ $service->name }}</td>
-                                <td>{{ $service->description }}</td>
-                                <td>{{ substr($service->subject, 0, 50) }}</td>
+                                <td>{{ $service->title }}</td>
+                                <td>{{ substr($service->description, 0, 50) }}</td>
+                                <td><img src="{{ asset(get_asset_path($service->asset_id)) }}" width="80" alt="{{ $service->title }}"></td>
                                 <td>
                                     <a href="my_service/{{ $service->id }}/edit" class="btn btn-sm btn-primary"><i class="nav-icon fas fa-edit"></i></a>
-                                    {{-- <a href="my_service/{{ $service->id }}/delete" onclick="return confirm('This record will be deleted!! Are you sure?')" class="btn btn-sm btn-danger"><i class="nav-icon fas fa-trash"></i></a> --}}
+                                    <a href="my_service/{{ $service->id }}/delete" onclick="return confirm('This record will be deleted!! Are you sure?')" class="btn btn-sm btn-danger"><i class="nav-icon fas fa-trash"></i></a>
                                 </td>
                             </tr>
                             @empty

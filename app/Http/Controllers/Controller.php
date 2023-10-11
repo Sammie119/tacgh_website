@@ -91,4 +91,17 @@ class Controller extends BaseController
         }
 
     }
+
+    protected function delete_asset_image($id)
+    {
+        $asset = Asset::find($id);
+
+        if(file_exists(public_path($asset->path))){
+            unlink(public_path($asset->path));
+        }
+
+        $asset->delete();
+
+        return true;
+    }
 }

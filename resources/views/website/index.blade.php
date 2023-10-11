@@ -8,7 +8,7 @@
 </style>
 
 @section('content')
-   
+
     <!-- ====== Carousel ====== -->
     <section id="carousel" class="carousel section-bg">
         <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -53,48 +53,43 @@
             </button>
         </div><!-- End Carousel -->
     </section>
-	
+
 	<main id="main">
 
 		<!-- ======= News Section ======= -->
 		<section id="about" class="about">
             <div class="container" data-aos="fade-up">
-        
+
                 <div class="section-title">
                     <h2>News</h2>
                 </div>
-        
-                <div class="row content">
-                    <div class="col-lg-6">
-						<h3 class="event-header">Lorem Ipsum</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua.
-                        </p>
-						<a href="#" class="btn-learn-more">Read More</a>
-                    </div>
 
-					<div class="col-lg-6">
-						<h3 class="event-header">Lorem Ipsum</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua.
-                        </p>
-						<a href="#" class="btn-learn-more">Read More</a>
-                    </div>
+                <div class="row content">
+                    @forelse (get_posts(2) as $post)
+                        <div class="col-lg-6">
+                            <h3 class="event-header">{{ $post['title'] }}</h3>
+                            <p>{{ $post['description'] }}</p>
+                            <a href="news/{{ $post['id'] }}" class="btn-learn-more">Read More</a>
+                        </div>
+                    @empty
+                        <div>
+                            No Post Found
+                        </div>
+                    @endforelse
+
                 </div>
-        
+
             </div>
 		</section><!-- End News Section -->
 
 		<!-- ======= About Us Section ======= -->
 		<section id="about" class="about section-bg">
             <div class="container" data-aos="fade-up">
-        
+
                 <div class="section-title">
                     <h2>About Us</h2>
                 </div>
-        
+
                 <div class="row content">
                     <div class="col-12 text-center">
                         <p>
@@ -106,25 +101,25 @@
 						<a href="/about" class="btn-learn-more">Learn More</a>
                     </div>
                 </div>
-        
+
             </div>
 		</section><!-- End About Us Section -->
-	
+
 		<!-- ======= Why Us Section ======= -->
 		<section id="why-us" class="why-us">
 		  <div class="container-fluid" data-aos="fade-up" style="margin-top: -4%; margin-bottom: -5%">
-	
+
 			<div class="row">
-	
+
 			  <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
-	
+
 				<div class="content">
 				  <h3><strong>velit pariatur architecto aut nihil</strong></h3>
 				  <p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
 				  </p>
 				</div>
-	
+
 				<div class="accordion-list">
 				  <ul>
 					<li>
@@ -135,7 +130,7 @@
 						</p>
 					  </div>
 					</li>
-	
+
 					<li>
 					  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Feugiat scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
 					  <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
@@ -144,7 +139,7 @@
 						</p>
 					  </div>
 					</li>
-	
+
 					<li>
 					  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
 					  <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
@@ -153,22 +148,22 @@
 						</p>
 					  </div>
 					</li>
-	
+
 				  </ul>
 				</div>
-	
+
 			  </div>
-	
+
 			  <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("{{ asset('assets/website/img/why-us.png') }}");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
 			</div>
-	
+
 		  </div>
 		</section><!-- End Why Us Section -->
-	
+
 		<!-- ======= Skills Section ======= -->
 		<section id="skills" class="skills section-bg">
 		  <div class="container" data-aos="fade-up">
-	
+
 			<div class="row">
 			  <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
 				<img src="{{ asset('assets/website/img/skills.png') }}" class="img-fluid" alt="">
@@ -179,49 +174,49 @@
 				  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
 				  magna aliqua.
 				</p>
-	
+
 				<div class="skills-content">
-	
+
 				  <div class="progress">
 					<span class="skill">HTML <i class="val">100%</i></span>
 					<div class="progress-bar-wrap">
 					  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 					</div>
 				  </div>
-	
+
 				  <div class="progress">
 					<span class="skill">CSS <i class="val">90%</i></span>
 					<div class="progress-bar-wrap">
 					  <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
 					</div>
 				  </div>
-	
+
 				  <div class="progress">
 					<span class="skill">JavaScript <i class="val">75%</i></span>
 					<div class="progress-bar-wrap">
 					  <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
 					</div>
 				  </div>
-	
+
 				  <div class="progress">
 					<span class="skill">Photoshop <i class="val">55%</i></span>
 					<div class="progress-bar-wrap">
 					  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
 					</div>
 				  </div>
-	
+
 				</div>
-	
+
 			  </div>
 			</div>
-	
+
 		  </div>
 		</section><!-- End Skills Section -->
-	
+
 		{{-- <!-- ======= Cta Section ======= -->
 		<section id="cta" class="cta">
 		  <div class="container" data-aos="zoom-in">
-	
+
 			<div class="row">
 			  <div class="col-lg-9 text-center text-lg-start">
 				<h3>Call To Action</h3>
@@ -231,18 +226,18 @@
 				<a class="cta-btn align-middle" href="#">Call To Action</a>
 			  </div>
 			</div>
-	
+
 		  </div>
 		</section><!-- End Cta Section --> --}}
 
 		<!-- ======= Events Section ======= -->
 		<section id="about" class="about">
             <div class="container" data-aos="fade-up">
-        
+
                 <div class="section-title">
                     <h2>Events</h2>
                 </div>
-        
+
                 <div class="row content">
 					@forelse (get_event(3) as $event)
 						<div class="col-lg-4">
@@ -298,6 +293,6 @@
             </div>
 
 		</section><!-- End Events Section -->
-	
+
 	</main><!-- End #main -->
 @endsection

@@ -50,9 +50,9 @@
                 <div class="card-body">
                     <div class="form-group">
                     <label for="exampleInputTitle"> Title</label>
-                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $service->name }}" readonly autocomplete="name" autofocus>
+                    <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $service->title }}" readonly autocomplete="title" autofocus>
 
-                        @error('name')
+                        @error('title')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -60,10 +60,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputIMAGE"> Image</label>
-                        <input id="file" type="text" class="form-control @error('file') is-invalid @enderror" name="file">
-
-                        @error('file')
+                        <label for="exampleInputImage"> Image</label>
+                        <input id="file" type="file" class="form-control @error('file') is-invalid @enderror" name="file">
+                        <img alt="{{ $service->title }}" src="{{ asset(get_asset_path($service->asset_id)) }}" width="100" height="100">
+                        @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

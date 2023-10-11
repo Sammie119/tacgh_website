@@ -70,13 +70,7 @@ class AssetController extends Controller
      */
     public function destroy(string $id)
     {
-        $asset = Asset::find($id);
-
-        if(file_exists(public_path($asset->path))){
-            unlink(public_path($asset->path));
-        }
-
-        $asset->delete();
+        $this->delete_asset_image($id);
 
         return redirect('my_assets')->with('success','Asset Deleted successfully');
     }

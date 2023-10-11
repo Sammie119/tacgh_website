@@ -36,22 +36,29 @@
                         <thead>
                           <tr>
                             <th style="width: 20px">#</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th style="width: 150px">is Verified</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th style="width: 150px">is Published</th>
                             <th style="width: 150px">Action</th>
                           </tr>
                         </thead>
                         <tbody>
-                            @forelse ($posts as $key => $user)
+                            @forelse ($posts as $key => $post)
                             <tr>
                                 <td>{{ ++$key }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ empty($user->email_verified_at) ? 'False' : 'True'  }}</td>
+                                <td>{{ $post->title }}</td>
+                                <td>{{ $post->description }}</td>
                                 <td>
-                                    <a href="{{ route('user_edit', ['id' => $user->id]) }}" class="btn btn-sm btn-primary"><i class="nav-icon fas fa-edit"></i></a>
-                                    <a href="user_del/{{ $user->id }}" onclick="return confirm('This record will be deleted!! Are you sure?')" class="btn btn-sm btn-danger"><i class="nav-icon fas fa-trash"></i></a>
+                                    @if ($post->is_published == 0)
+                                        <span class="badge bg-danger">Not Published</span>
+                                    @else
+                                        <span class="badge bg-success">Published</span>
+                                    @endif
+                                </td>
+
+                                <td>
+                                    <a href="/posts/{{ $post->id }}/edit" class="btn btn-sm btn-primary"><i class="nav-icon fas fa-edit"></i></a>
+                                    <a href="posts/{{ $post->id }}/delete" onclick="return confirm('This record will be deleted!! Are you sure?')" class="btn btn-sm btn-danger"><i class="nav-icon fas fa-trash"></i></a>
                                 </td>
                             </tr>
                             @empty
