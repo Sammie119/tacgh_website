@@ -31,20 +31,20 @@
 	<link href="{{ asset('assets/website/css/style.css') }}" rel="stylesheet">
 
 	<style>
-		.main-hero {
-			margin-top: 4%;
-		}
+        .main-hero {
+            margin-top: 4%;
+        }
 
-		#infoi {
-			width: 7%;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: 10;
-			margin-left: 5%;
-			background-color: #fff;
-		}
+        #infoi {
+            width: 7%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            margin-left: 5%;
+            background-color: #fff;
+        }
 	</style>
 
 	<!-- =======================================================
@@ -60,14 +60,14 @@
 	<!-- ======= Header ======= -->
 	<header id="header" class="fixed-top ">
 		<div class="container d-flex align-items-center">
-			
-			<div id="infoi" class="d-flex align-items-center">
+
+			 <div id="infoi" class="d-flex align-items-center">
 				<div>
 					{{-- <img src="{{ asset('assets/sys_img/tacccu_logo2.jpg') }}" width="80" height="50" alt="logo" style="margin-left: 11%"> --}}
-					<a href="/"><img src="{{ asset(get_asset('Logo')) }}" width="80" height="50" alt="logo" style="margin-left: 11%"></a>
+					<a href="/"><img src="{{ asset(get_asset('Logo')) }}" alt="logo" style="margin-left: 5%; width: 90%"></a>
 				</div>
-			</div>
-			
+			 </div>
+
 			<h1 class="logo me-auto"><a href="/">
 				{{-- <img src="{{ asset('assets/sys_img/tacccu_logo2.jpg') }}" width="50" alt="logo" style="'backgroung-color: white"> --}}
 			</a></h1>
@@ -101,11 +101,11 @@
 
     <!-- ======= Footer ======= -->
 	<footer id="footer">
-	
+
 		<div class="footer-top" style="background: #37517e; color: #fff">
 		  <div class="container">
 			<div class="row">
-	
+
 			  <div class="col-lg-3 col-md-6 footer-contact">
 				<h3>TACCCU</h3>
 				<p>
@@ -116,7 +116,7 @@
 				  <strong>Email:</strong> {{ get_contact_subject('Email') }}<br>
 				</p>
 			  </div>
-	
+
 			  <div class="col-lg-3 col-md-6 footer-links">
 				<h4>Useful Links</h4>
 				<ul>
@@ -127,7 +127,7 @@
 				  <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
 				</ul>
 			  </div>
-	
+
 			  <div class="col-lg-3 col-md-6 footer-links">
 				<h4>Our Services</h4>
 				<ul>
@@ -138,7 +138,7 @@
 				  <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
 				</ul>
 			  </div>
-	
+
 			  <div class="col-lg-3 col-md-6 footer-links">
 				<h4>Our Social Networks</h4>
 				<p>Our social media handles are always available, get in touch with us...</p>
@@ -151,7 +151,7 @@
 				  <a href="{{ get_contact_subject('Whatsapp') }}" target="_blank" class="whastapp"><i class="bx bxl-whatsapp"></i></a>
 				</div>
 			  </div>
-	
+
 			</div>
 			<div class="row">
 				<div class="col-12">
@@ -170,10 +170,10 @@
 		  </div>
 		</div>
 	  </footer><!-- End Footer -->
-	
+
 	  <div id="preloader"></div>
 	  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-	
+
 	  <!-- Vendor JS Files -->
 	  <script src="{{ asset('assets/website/vendor/aos/aos.js') }}"></script>
 	  <script src="{{ asset('assets/website/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -182,11 +182,11 @@
 	  <script src="{{ asset('assets/website/vendor/swiper/swiper-bundle.min.js') }}"></script>
 	  <script src="{{ asset('assets/website/vendor/waypoints/noframework.waypoints.js') }}"></script>
 	  {{-- <script src="{{ asset('assets/website/vendor/php-email-form/validate.js') }}"></script> --}}
-	  
+
 	  @stack('scripts')
 	  <!-- Template Main JS File -->
 	  <script src="{{ asset('assets/website/js/main.js') }}"></script>
-	
+
 </body>
-	
+
 </html>

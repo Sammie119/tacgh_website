@@ -65,7 +65,7 @@
           </form>
         </div>
       </li>
-      
+
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -78,11 +78,11 @@
           <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             <span class="dropdown-item dropdown-header">Logout</span>
           </a>
-        
+
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               {{ csrf_field() }}
           </form>
-          
+
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             <i class="fas fa-envelope mr-2"></i> 4 new messages
@@ -159,10 +159,11 @@
             </a>
           </li> --}}
           <li class="nav-item">
-            <a href="#" class="nav-link 
+            <a href="#" class="nav-link
               {{ request()->is('about-us*') ? 'active' : '' }}
               {{ request()->is('contacts*') ? 'active' : '' }}
               {{ request()->is('my_uploads*') ? 'active' : '' }}
+              {{ request()->is('my_service*') ? 'active' : '' }}
               ">
               <i class="nav-icon fas fa-eye"></i>
               <p>
@@ -197,9 +198,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="/my_service" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
-                  <p>News</p>
+                  <p>Services Page</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-angle-right nav-icon"></i>
+                    <p>News</p>
                 </a>
               </li>
             </ul>

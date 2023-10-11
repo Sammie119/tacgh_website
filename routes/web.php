@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\ServiceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -77,6 +78,9 @@ Route::get('events/{events}/delete', [EventController::class, 'destroy']);
 
 Route::resource('staff', StaffController::class);
 Route::get('staff/{staff}/delete', [StaffController::class, 'destroy']);
+
+Route::resource('my_service', ServiceController::class);
+Route::get('my_service/{my_service}/delete', [ServiceController::class, 'destroy']);
 
 //Website
 

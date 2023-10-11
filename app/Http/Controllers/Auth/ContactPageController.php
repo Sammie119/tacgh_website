@@ -37,7 +37,7 @@ class ContactPageController extends Controller
             'description' => ['required', 'max:255'],
             'subject' => ['required'],
         ])->validate();
-        
+
         ContactPage::firstOrCreate(
             [
                 'name' => $request['name']
@@ -80,7 +80,7 @@ class ContactPageController extends Controller
             'description' => ['required', 'max:255'],
             'subject' => ['required'],
         ])->validate();
-        
+
         ContactPage::find($id)->update(
             [
                 // 'name' => $request['name'],
