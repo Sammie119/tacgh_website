@@ -71,7 +71,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputImage"> Image</label>
+                        <label for="exampleInputImage"> Image (1200 x 900 px)</label>
                         <input id="file" type="file" class="form-control @error('file') is-invalid @enderror" name="file">
                         <img alt="{{ $home->title }}" src="{{ asset(get_asset_path($home->asset_id)) }}" width="100" height="100">
                         @error('file')
@@ -150,7 +150,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputImage"> Image</label>
+                            <label for="exampleInputImage"> Image (1200 x 900 px)</label>
                             <input id="file" type="file" class="form-control @error('file') is-invalid @enderror" name="file">
 
                             @error('file')
