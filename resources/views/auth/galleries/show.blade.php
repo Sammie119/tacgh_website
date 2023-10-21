@@ -64,11 +64,11 @@
 
                     <div class="row">
                         @foreach ($galleries as $gallery)
-                            <div class="col-4 mt-2 mb2">
+                            <div class="col-4 mt-2 mb-2">
                                 <div class="form-group">
-                                    <img src="{{ asset($gallery->path) }}" alt="{{ $gallery->name }}">
+                                    <img src="{{ asset($gallery->path) }}" alt="{{ $gallery->name }}" width="300">
                                 </div>
-            
+
                                 <div class="form-group">
                                     <label for="exampleInputDescription">Size: {{ $gallery->width }} X {{ $gallery->height }}</label>
                                     <a href="/galleries/{{ $gallery->id }}/image" onclick="return confirm('This record will be deleted!! Are you sure?')" class="btn btn-sm btn-danger ml-4"><i class="nav-icon fas fa-trash"></i></a>
@@ -84,7 +84,7 @@
         </div>
     </section>
 </div>
-    
+
 @endsection
 
 

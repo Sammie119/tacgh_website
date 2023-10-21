@@ -1,20 +1,22 @@
 <?php
 
-use App\Http\Controllers\Auth\ServiceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\PostController;
 use App\Http\Controllers\Auth\AssetController;
+use App\Http\Controllers\Auth\EventController;
+use App\Http\Controllers\Auth\StaffController;
 use App\Http\Controllers\Auth\GalleryController;
+use App\Http\Controllers\Auth\ServiceController;
+use App\Http\Controllers\Auth\CarouselController;
 use App\Http\Controllers\Auth\CategoryController;
 use App\Http\Controllers\Auth\DownloadController;
+use App\Http\Controllers\Auth\HomePageController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\AboutPageController;
 use App\Http\Controllers\Auth\DashboardController;
 use App\Http\Controllers\Auth\ContactPageController;
-use App\Http\Controllers\Auth\EventController;
-use App\Http\Controllers\Auth\StaffController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +75,12 @@ Route::get('staff/{staff}/delete', [StaffController::class, 'destroy']);
 
 Route::resource('my_service', ServiceController::class);
 Route::get('my_service/{my_service}/delete', [ServiceController::class, 'destroy']);
+
+Route::resource('carousels', CarouselController::class);
+Route::get('carousels/{carousels}/delete', [CarouselController::class, 'destroy']);
+
+Route::resource('home-page', HomePageController::class);
+Route::get('home-page/{home-page}/delete', [HomePageController::class, 'destroy']);
 
 //Website
 

@@ -2,8 +2,10 @@
 
 use App\Models\AboutPage;
 use App\Models\Asset;
+use App\Models\Carousel;
 use App\Models\ContactPage;
 use App\Models\Gallery;
+use App\Models\HomePage;
 use App\Models\Post;
 use App\Models\ServicePage;
 use App\Models\Staff;
@@ -154,3 +156,43 @@ if(!function_exists("get_posts")){
         return [];
     }
 }
+
+if(!function_exists("get_posts_single")){
+    function get_posts_single($num): array
+    {
+        $posts = Post::where('id', $num)->first();
+
+        if($posts){
+            return $posts->toArray();
+        }
+
+        return [];
+    }
+}
+
+if(!function_exists("get_carousel")){
+    function get_carousel(): array
+    {
+        $carousel = Carousel::all();
+
+        if($carousel){
+            return $carousel->toArray();
+        }
+
+        return [];
+    }
+}
+
+if(!function_exists("get_home_page")){
+    function get_home_page($name): array
+    {
+        $item = HomePage::where('name', $name)->first();
+
+        if($item){
+            return $item->toArray();
+        }
+
+        return [];
+    }
+}
+

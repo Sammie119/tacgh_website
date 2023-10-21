@@ -84,13 +84,13 @@
           </form>
 
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          {{-- <a href="#" class="dropdown-item">
             <i class="fas fa-envelope mr-2"></i> 4 new messages
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             <i class="fas fa-users mr-2"></i> 8 friend requests
-          </a>
+          </a> --}}
         </div>
       </li>
       <li class="nav-item">
@@ -128,6 +128,13 @@
             <a href="/posts" class="nav-link {{ request()->is('posts*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-copy"></i>
               <p>Posts</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/carousels" class="nav-link {{ request()->is('carousels*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-image"></i>
+              <p>Carousel</p>
             </a>
           </li>
 
@@ -174,7 +181,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/home-page" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>Home Page</p>
                 </a>

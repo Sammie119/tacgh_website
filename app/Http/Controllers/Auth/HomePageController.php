@@ -2,22 +2,20 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Models\Asset;
-use App\Models\ServicePage;
+use App\Models\HomePage;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use Intervention\Image\Facades\Image;
 
-class ServiceController extends Controller
+class HomePageController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $services = ServicePage::all();
-        return view('auth.services_page.index', ['services' => $services]);
+        $home = HomePage::all();
+        return view("auth.home_page.index", ["home"=> $home]);
     }
 
     /**
@@ -25,7 +23,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('auth.services_page.create');
+        return view("auth.home_page.create");
     }
 
     /**
@@ -33,15 +31,16 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
+        // dd($request->all());
         Validator::make($request->all(), [
+            'name' => ['required', 'max:255'],
             'title' => ['required', 'max:255'],
             'description' => ['required'],
             'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg', 'max:2048'],
         ])->validate();
 
         $data = [
-            'name' => "Service",
+            'name' => "Home Page",
             'description' => $request['title'],
             'file' => $request['file'],
             'width' => 1200,
@@ -50,7 +49,8 @@ class ServiceController extends Controller
 
         $asset = $this->save_asset_image($data);
 
-        ServicePage::create([
+        HomePage::create([
+            'name' => $request['name'],
             'title' => $request['title'],
             'asset_id' => $asset->id,
             'description' => $request['description'],
@@ -58,7 +58,7 @@ class ServiceController extends Controller
             'updated_by' => get_logged_in_user_id(),
         ]);
 
-        return redirect('my_service')->with('success','Service Created successfully');
+        return redirect('home-page')->with('success','Item Created successfully');
     }
 
     /**
@@ -74,8 +74,9 @@ class ServiceController extends Controller
      */
     public function edit(string $id)
     {
-        $service = ServicePage::find($id);
-        return view('auth.services_page.create', ['service' => $service]);
+        $home = HomePage::find($id);
+        // dd($home);
+        return view("auth.home_page.create", ["home" => $home]);
     }
 
     /**
@@ -84,31 +85,33 @@ class ServiceController extends Controller
     public function update(Request $request, string $id)
     {
         Validator::make($request->all(), [
+            'name' => ['required', 'max:255'],
             'title' => ['required', 'max:255'],
             'description' => ['required'],
             'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg', 'max:2048'],
         ])->validate();
 
-        $service = ServicePage::find($id);
+        $home = HomePage::find($id);
 
         $data = [
-            'name' => "Service",
+            'name' => "Home Page",
             'description' => $request['title'],
             'file' => $request['file'],
             'width' => 1200,
             'height' => 900,
         ];
 
-        $this->update_asset_image($service->asset_id, $data);
+        $this->update_asset_image($home->asset_id, $data);
 
-        $service->update([
+        $home->update([
+            'name' => $request['name'],
             'title' => $request['title'],
-            'asset_id' => $service->asset_id,
+            'asset_id' => $home->asset_id,
             'description' => $request['description'],
             'updated_by' => get_logged_in_user_id(),
         ]);
 
-        return redirect('my_service')->with('success','Service Updated successfully');
+        return redirect('home-page')->with('success','Item Updated successfully');
     }
 
     /**
@@ -116,12 +119,12 @@ class ServiceController extends Controller
      */
     public function destroy(string $id)
     {
-        $service = ServicePage::find($id);
+        $home = HomePage::find($id);
 
-        $this->delete_asset_image($service->asset_id);
+        $this->delete_asset_image($home->asset_id);
 
-        $service->delete();
+        $home->delete();
 
-        return redirect('my_service')->with('success','Service Deleted successfully');
+        return redirect('home-page')->with('success','Item Deleted successfully');
     }
 }
