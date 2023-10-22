@@ -36,7 +36,7 @@ class StaffController extends Controller
         Validator::make($request->all(), [
             'name' => ['required', 'max:255'],
             'description' => ['required', 'max:255'],
-            'file' => ['required', 'image', 'mimes:jpg,jpeg,png,gif', 'max:2048'],
+            'file' => ['required', 'image', 'mimes:jpg,jpeg,png,gif'],
             'contact' => ['required'],
             'position' => ['required'],
             'is_staff_or_board' => ['required'],
@@ -102,7 +102,7 @@ class StaffController extends Controller
         Validator::make($request->all(), [
             'name' => ['required', 'max:255'],
             'description' => ['required', 'max:255'],
-            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif', 'max:2048'],
+            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif'],
             'contact' => ['required'],
             'position' => ['required'],
             'is_staff_or_board' => ['required'],

@@ -37,7 +37,7 @@ class ServiceController extends Controller
         Validator::make($request->all(), [
             'title' => ['required', 'max:255'],
             'description' => ['required'],
-            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg', 'max:2048'],
+            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg'],
         ])->validate();
 
         $data = [
@@ -86,7 +86,7 @@ class ServiceController extends Controller
         Validator::make($request->all(), [
             'title' => ['required', 'max:255'],
             'description' => ['required'],
-            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg', 'max:2048'],
+            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg'],
         ])->validate();
 
         $service = ServicePage::find($id);

@@ -38,7 +38,7 @@ class CarouselController extends Controller
             'name' => ['required', 'max:255'],
             'description' => ['required'],
             'post_id' =>['required', 'integer'],
-            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg', 'max:2048'],
+            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg'],
         ])->validate();
 
         $data = [
@@ -89,7 +89,7 @@ class CarouselController extends Controller
             'name' => ['required', 'max:255'],
             'description' => ['required'],
             'post_id' =>['required', 'integer'],
-            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg', 'max:2048'],
+            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg'],
         ])->validate();
 
         $carousel = Carousel::find($id);

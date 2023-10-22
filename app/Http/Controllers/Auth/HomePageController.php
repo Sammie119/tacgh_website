@@ -36,7 +36,7 @@ class HomePageController extends Controller
             'name' => ['required', 'max:255'],
             'title' => ['required', 'max:255'],
             'description' => ['required'],
-            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg', 'max:2048'],
+            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg'],
         ])->validate();
 
         $data = [
@@ -88,7 +88,7 @@ class HomePageController extends Controller
             'name' => ['required', 'max:255'],
             'title' => ['required', 'max:255'],
             'description' => ['required'],
-            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg', 'max:2048'],
+            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg'],
         ])->validate();
 
         $home = HomePage::find($id);
