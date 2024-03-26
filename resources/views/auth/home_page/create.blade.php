@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', 'TACCCU - Home Page')
+@section('title', 'The Apostolic Church-Ghana - Home Page')
 
 @push('styles')
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">

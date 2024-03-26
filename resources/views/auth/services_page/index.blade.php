@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', 'TACCCU - Service')
+@section('title', 'The Apostolic Church-Ghana - Directorates')
 
 @section('content')
 
@@ -11,7 +11,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Service</h1>
+            <h1 class="m-0">Directorates</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -27,7 +27,7 @@
             <div class="container-fluid">
                 <div class="card card-primary">
                     <div class="card-header">
-                      <h3 class="card-title float-left align-middle">Service Page</h3>
+                      <h3 class="card-title float-left align-middle">Directorates Page</h3>
                       @if(get_logged_in_user_id() == 1)
                         <a href="/my_service/create" class="btn btn-sm btn-dark float-right">Add Item</a>
                       @endif
@@ -38,19 +38,17 @@
                         <thead>
                           <tr>
                             <th style="width: 20px">#</th>
+                            <th>Name</th>
                             <th>Title</th>
-                            <th>Description</th>
-                            <th>Image</th>
-                            <th>Actions</th>
+                            <th style="width: 150px">Actions</th>
                           </tr>
                         </thead>
                         <tbody>
                             @forelse ($services as $key => $service)
                             <tr>
                                 <td>{{ ++$key }}</td>
+                                <td>{{ $service->name }}</td>
                                 <td>{{ $service->title }}</td>
-                                <td>{{ substr($service->description, 0, 50) }}</td>
-                                <td><img src="{{ asset(get_asset_path($service->asset_id)) }}" width="80" alt="{{ $service->title }}"></td>
                                 <td>
                                     <a href="my_service/{{ $service->id }}/edit" class="btn btn-sm btn-primary"><i class="nav-icon fas fa-edit"></i></a>
                                     <a href="my_service/{{ $service->id }}/delete" onclick="return confirm('This record will be deleted!! Are you sure?')" class="btn btn-sm btn-danger"><i class="nav-icon fas fa-trash"></i></a>

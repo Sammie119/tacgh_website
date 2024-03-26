@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', 'TACCCU - Gallery')
+@section('title', 'The Apostolic Church-Ghana - Gallery')
 
 @section('content')
 
@@ -78,11 +78,11 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label for="exampleInputwidth">Gallery Width</label>
                                     <input id="width" type="number" min="1" class="form-control @error('width') is-invalid @enderror" name="width" value="{{ $gallery->width }}" readonly autocomplete="width">
-        
+
                                     @error('width')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -90,12 +90,33 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label for="exampleInputheight">Gallery Height</label>
                                     <input id="height" type="number" min="1" class="form-control @error('height') is-invalid @enderror" name="height" value="{{ $gallery->height }}" readonly>
-        
+
                                     @error('height')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label for="exampleInputDescription">Gallery Tag</label>
+                                    <select id="tag" class="form-control @error('tag') is-invalid @enderror" name="tag" required>
+                                        <option selected disabled>--Select Tag--</option>
+                                        <option @if ( $gallery->tag == 'GSEC') selected @endif>GSEC</option>
+                                        <option @if ( $gallery->tag == 'CAPS') selected @endif>CAPS</option>
+                                        <option @if ( $gallery->tag == 'EXEC') selected @endif>EXEC</option>
+                                        <option @if ( $gallery->tag == 'MGNT') selected @endif>MGNT</option>
+                                        <option @if ( $gallery->tag == 'EVENT') selected @endif>EVENT</option>
+                                        <option @if ( $gallery->tag == 'NEHPj') selected @endif>NEHPj</option>
+                                        <option @if ( $gallery->tag == 'OTHER') selected @endif>OTHER</option>
+                                    </select>
+
+                                    @error('tag')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -107,7 +128,6 @@
                             <label for="exampleInputpost">Related Post</label>
                             <select id="post" class="form-control @error('post') is-invalid @enderror" name="post" value="{{ old('post') }}">
                                 <option selected value="{{ $gallery->post_id }}">Selected</option>
-
                             </select>
 
                             @error('post')
@@ -126,8 +146,8 @@
                 </div>
                 <!-- /.card -->
             </div>
-        </section> 
-    @else 
+        </section>
+    @else
         <section class="content">
             <div class="container-fluid">
                 @if ($errors->any())
@@ -184,11 +204,11 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label for="exampleInputwidth">Gallery Width</label>
                                     <input id="width" type="number" min="1" class="form-control @error('width') is-invalid @enderror" name="width" value="{{ old('width') }}" required autocomplete="width">
-        
+
                                     @error('width')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -196,12 +216,33 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label for="exampleInputheight">Gallery Height</label>
                                     <input id="height" type="number" min="1" class="form-control @error('height') is-invalid @enderror" name="height" value="{{ old('height') }}" required autocomplete="height">
-        
+
                                     @error('height')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label for="exampleInputDescription">Gallery Tag</label>
+                                    <select id="tag" class="form-control @error('tag') is-invalid @enderror" name="tag" required>
+                                        <option selected disabled>--Select Tag--</option>
+                                        <option>GSEC</option>
+                                        <option>CAPS</option>
+                                        <option>EXEC</option>
+                                        <option>MGNT</option>
+                                        <option>EVENT</option>
+                                        <option>NEHPj</option>
+                                        <option>OTHER</option>
+                                    </select>
+
+                                    @error('tag')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -213,7 +254,9 @@
                             <label for="exampleInputpost">Related Post</label>
                             <select id="post" class="form-control @error('post') is-invalid @enderror" name="post" value="{{ old('post') }}">
                                 <option disabled selected>Choose a related post</option>
-
+                                @foreach (get_posts() as $post)
+                                    <option value="{{ $post['id'] }}">{{ $post['title'] }}</option>
+                                @endforeach
                             </select>
 
                             @error('post')
@@ -236,7 +279,7 @@
     @endisset
 
 </div>
-    
+
 @endsection
 
 

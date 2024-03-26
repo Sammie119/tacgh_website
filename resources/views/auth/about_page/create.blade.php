@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', 'TACCCU - About-Us')
+@section('title', 'The Apostolic Church-Ghana - About-Us')
 
 @push('styles')
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
 
     <!-- Main content -->
     @isset($about->id)
-    
+
     <section class="content">
         <div class="container-fluid">
             @if ($errors->any())
@@ -141,7 +141,7 @@
                         <div class="form-group">
                             <label for="exampleInputSubject"> Subject</label>
                             <textarea id="summernote" class="form-control @error('subject') is-invalid @enderror" name="subject" cols="30" rows="10" required>{{ old('subject') }}</textarea>
-    
+
                             @error('subject')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -150,7 +150,7 @@
                         </div>
                     </div>
                     <!-- /.card-body -->
-    
+
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
@@ -161,8 +161,8 @@
         </section>
 
     @endisset
-    
-    
+
+
 </div>
 @endsection
 

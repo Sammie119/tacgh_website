@@ -38,7 +38,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/" class="nav-link">Home</a>
+        <a href="/dashboard" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -105,9 +105,9 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="/dashboard" class="brand-link">
       <img src="{{ asset('assets/auth/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-bold">TACCCU Admin</span>
+      <span class="brand-text font-weight-bold">TACGH Admin</span>
     </a>
 
     <!-- Sidebar -->
@@ -132,6 +132,13 @@
           </li>
 
           <li class="nav-item">
+            <a href="/devotions" class="nav-link {{ request()->is('devotions*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>Devotions</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="/carousels" class="nav-link {{ request()->is('carousels*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-image"></i>
               <p>Carousel</p>
@@ -152,6 +159,13 @@
             </a>
           </li>
 
+          {{-- <li class="nav-item">
+            <a href="/message" class="nav-link {{ request()->is('message*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-image"></i>
+              <p>Messages</p>
+            </a>
+          </li> --}}
+
           <li class="nav-item">
             <a href="/galleries" class="nav-link {{ request()->is('galleries*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-images"></i>
@@ -171,6 +185,7 @@
               {{ request()->is('contacts*') ? 'active' : '' }}
               {{ request()->is('my_uploads*') ? 'active' : '' }}
               {{ request()->is('my_service*') ? 'active' : '' }}
+              {{ request()->is('message*') ? 'active' : '' }}
               ">
               <i class="nav-icon fas fa-eye"></i>
               <p>
@@ -201,19 +216,19 @@
               <li class="nav-item">
                 <a href="/my_uploads" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Download Page</p>
+                  <p>Downloads</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/my_service" class="nav-link">
                   <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Services Page</p>
+                  <p>Directorates</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/message" class="nav-link">
                     <i class="fas fa-angle-right nav-icon"></i>
-                    <p>News</p>
+                    <p>Messages</p>
                 </a>
               </li>
             </ul>
@@ -223,6 +238,20 @@
             <a href="/contact-forms" class="nav-link {{ request()->is('contact-forms*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-table"></i>
               <p>Contact Form</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/prayer-forms" class="nav-link {{ request()->is('prayer-forms*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-table"></i>
+              <p>Prayer Requst Form</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/testimony-forms" class="nav-link {{ request()->is('testimony-forms*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-table"></i>
+              <p>Testimony Form</p>
             </a>
           </li>
 
@@ -417,7 +446,7 @@
 
   <!-- Main Footer -->
   <footer class="main-footer">
-    <strong>Copyright &copy; {{ date('Y') }} <a href="/">TACCCU</a>.</strong>
+    <strong>Copyright &copy; {{ date('Y') }} <a href="/">The Apostolic Church-Ghana</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Sammav IT Services</b>

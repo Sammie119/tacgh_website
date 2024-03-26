@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', 'TACCCU - Downloads')
+@section('title', 'The Apostolic Church-Ghana - Downloads')
 
 @section('content')
 
@@ -42,16 +42,38 @@
                 <form method="POST" action="/my_uploads" enctype="multipart/form-data">
                     @csrf
                 <div class="card-body">
-                    <div class="form-group">
-                    <label for="exampleInputTitle">Download Name</label>
-                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="form-group">
+                                <label for="exampleInputTitle">Download Name</label>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                        @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="exampleInputTitle">Document Type</label>
+                                <select id="type" class="form-control @error('type') is-invalid @enderror" name="type" required>
+                                    <option selected disabled>--Select--</option>
+                                    <option>Apostolic Herald</option>
+                                    <option>Riches of Grace</option>
+                                    <option>Other Documents</option>
+                                </select>
+
+                                @error('type')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
+
 
                     <div class="form-group">
                         <label for="exampleInputDescription">Download Description</label>
@@ -85,9 +107,9 @@
             <!-- /.card -->
         </div>
     </section>
-    
+
 </div>
-    
+
 @endsection
 
 

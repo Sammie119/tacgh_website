@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', 'TACCCU - Contact Form')
+@section('title', 'The Apostolic Church-Ghana - Contact Form')
 
 @section('content')
 
@@ -56,7 +56,7 @@
     </section>
 
 </div>
-    
+
 @endsection
 
 

@@ -2,32 +2,81 @@
 
 @section('content')
 
- <!-- ======= Hero Section ======= -->
-    <section id="cta" class="cta main-hero" style="background: no-repeat linear-gradient(rgba(40, 58, 90, 0.9), rgba(40, 58, 90, 0.9)), url({{ asset(get_asset('Hero Image')) }}) center center">
-        <div class="container" data-aos="zoom-in">
+    <main id="main" style="margin-top: 5.5rem;">
 
-        <div class="row">
-            <div class="col-lg-12 text-center text-lg-start">
-                <h1 class="text-center text-white text-bold">{{ $post->title }}</h1>
-                <p class="text-center"> {{ $post->description }}</p>
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                @php
+                    $urlParts = parse_url(url()->previous());
+                    $host = explode('/',$urlParts['path']);
+                @endphp
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>{{ $post->title }}</h2>
+                    <ol>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="{{ url()->previous() }}">{{ ucfirst(end($host)) }}</a></li>
+                        <li>{{ $post->title }}</li>
+                    </ol>
+                </div>
+
             </div>
-        </div>
+        </section><!-- End Breadcrumbs Section -->
 
-        </div>
-    </section>
+        <section id="portfolio-details" class="portfolio-details">
+            <div class="container">
 
-  <main id="main">
+              <div class="row gy-4">
 
-    <section id="about" class="about">
-        <div class="container" data-aos="fade-up">
+                <div class="col-lg-8">
+                    @if(count(get_posts_image($post->id, 'all')) != 0)
+                        <div class="portfolio-details-slider swiper">
+                            <div class="swiper-wrapper align-items-center">
+                                @foreach (get_posts_image($post->id, 'all') as $image)
+                                    <div class="swiper-slide">
+                                        <img src="{{ asset($image->path) }}" alt="image">
+                                    </div>
+                                @endforeach
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    @endif
 
-            <div class="row content">
-                <div class="col-12">{!! $post->body !!}</div>
+                    {!! $post->body !!}
+
+                </div>
+
+                <div class="col-lg-4">
+                    @include('components.devotions')
+                </div>
+
+              </div>
+
             </div>
+        </section>
 
-        </div>
-    </section>
-
-  </main>
+    </main><!-- End #main -->
 
 @endsection
+
+
+{{-- <div class="col-lg-8">
+    <div class="portfolio-details-slider swiper">
+      <div class="swiper-wrapper align-items-center">
+
+        <div class="swiper-slide">
+          <img src="assets/img/portfolio/portfolio-1.jpg" alt="">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="assets/img/portfolio/portfolio-2.jpg" alt="">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="assets/img/portfolio/portfolio-3.jpg" alt="">
+        </div>
+
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+</div> --}}

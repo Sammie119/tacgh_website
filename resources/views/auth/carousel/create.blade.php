@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', 'TACCCU - Carousels')
+@section('title', 'The Apostolic Church-Ghana - Carousels')
 
 @section('content')
 
@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputImage"> Image</label>
+                        <label for="exampleInputImage"> Image (Size: 2050x1200)</label>
                         <input id="file" type="file" class="form-control @error('file') is-invalid @enderror" name="file">
                         <img alt="{{ $carousel->name }}" src="{{ asset(get_asset_path($carousel->asset_id)) }}" width="100" height="100">
                         @error('file')
@@ -140,7 +140,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputImage"> Image</label>
+                            <label for="exampleInputImage"> Image (Size: 2050x1200)</label>
                             <input id="file" type="file" class="form-control @error('file') is-invalid @enderror" name="file" required>
 
                             @error('file')

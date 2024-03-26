@@ -1,63 +1,74 @@
 @extends('layouts.website')
 
-<style>
-    .badge {
-        background: no-repeat linear-gradient(rgba(40, 58, 90, 0.9), rgba(40, 58, 90, 0.9));
-    }
-
-    h3 {
-        ;
-    }
-</style>
-
 @section('content')
 
-    <!-- ======= Hero Section ======= -->
-    <section id="cta" class="cta main-hero" style="background: no-repeat linear-gradient(rgba(40, 58, 90, 0.9), rgba(40, 58, 90, 0.9)), url({{ asset(get_asset('Hero Image')) }}) center center">
-        <div class="container" data-aos="zoom-in">
+    <main id="main" style="margin-top: 5.5rem;">
 
-        <div class="row">
-            <div class="col-lg-12 text-center text-lg-start">
-                <h1 class="text-center text-white text-bold">Event Calender</h1>
-                {{-- <p class="text-center"> Upcoming s</p> --}}
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Event Calender</h2>
+                    <ol>
+                        <li><a href="/">Home</a></li>
+                        <li>Event Calender</li>
+                    </ol>
+                </div>
+
             </div>
-        </div>
+        </section><!-- End Breadcrumbs Section -->
 
-        </div>
-    </section>
+        <section id="portfolio-details" class="portfolio-details">
+            <div class="container">
 
-    <main id="main">
-        <!-- ======= Services Section ======= -->
-		<section id="services" class="services">
-      
-            <table style="width: 50%; margin-left: 25%">
-                @forelse (get_event() as $event)
-                    <tr>
-                        <td rowspan="2" style="width: 5%"><h4 class="display-4"><span class="badge" style="">{{ date('d', strtotime($event['start_date'])) }}</span></h4></td>
-                        <td style="padding-left: 2%"><h3 class="text-uppercase" style="color: #37517e"><strong>{{ $event['name'] }}</strong></h3></td>
-                    </tr>
-                    <tr>
-                        <td style="padding-left: 2%">
-                            <ul class="list-inline">
-                                <li class="list-inline-item"><i class="bi bi-calendar"></i> {{ ($event['start_date'] == $event['end_date']) ? get_date_time_format($event['start_date']) : get_date_time_format($event['start_date'])." - ".get_date_time_format($event['end_date']) }}</li>
-                                <li class="list-inline-item"><i class="bi bi-clock"></i> {{ get_date_time_format($event['start_time'], 'time') }}</li>
-                                <li class="list-inline-item"><i class="bi bi-geo-alt"></i> {{ $event['venue'] }}</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: right; vertical-align: top; color: #37517e"><h3>{{ strtoupper(date('M', strtotime($event['start_date']))) }}</h3></td>
-                        <td style="padding-left: 2%"><p>{{ $event['description'] }}</p></td>
-                    </tr>
-                @empty
-                    <tr>
-                        <td colspan="10">No Event</td>
-                    </tr>
-                @endforelse
-                
-            </table>
-      
-        </section><!-- End Services Section -->
-    </main>
-    
+              <div class="row gy-4">
+
+                <div class="col-lg-8">
+                    <div class="row">
+                        @forelse (get_event() as $event)
+                            <div class="col-md-6 col-lg-6 mb-3" >
+                                <div class="icon-box" data-aos="fade-up" data-aos-delay="100" style="border-bottom: 1px solid #000">
+                                    <small class="text-muted">
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item"><i class="bi bi-calendar"></i> {{ ($event['start_date'] == $event['end_date']) ? get_date_time_format($event['start_date']) : get_date_time_format($event['start_date'])." - ".get_date_time_format($event['end_date']) }}</li>
+                                            <li class="list-inline-item"><i class="bi bi-clock"></i> {{ get_date_time_format($event['start_time'], 'time') }}</li> <br>
+                                            <li class="list-inline-item mt-2"><i class="bi bi-geo-alt"></i> {{ $event['venue'] }}</li>
+                                        </ul>
+                                    </small>
+                                    <h4 class="title">{{ $event['name'] }}</h4>
+                                    <p class="text-muted">{{ $event['description'] }}</p>
+                                </div>
+                            </div>
+                        @empty
+                            <div class="col-md-6 col-lg-6 ">
+                                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                    <small class="text-muted">
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item"><i class="bi bi-calendar"></i> No Date</li>
+                                            <li class="list-inline-item"><i class="bi bi-clock"></i> No Time</li> <br>
+                                            <li class="list-inline-item mt-2"><i class="bi bi-geo-alt"></i> No Venue</li>
+                                        </ul>
+                                    </small>
+                                    <h3 class="title">No Event</h3>
+                                    <p>Kind enter an Event</p>
+                                </div>
+
+                            </div>
+                        @endforelse
+
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    @include('components.devotions')
+                </div>
+
+              </div>
+
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+
 @endsection

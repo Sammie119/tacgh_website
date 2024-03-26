@@ -38,15 +38,15 @@ class CarouselController extends Controller
             'name' => ['required', 'max:255'],
             'description' => ['required'],
             'post_id' =>['required', 'integer'],
-            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg'],
+            'file' => ['required', 'image', 'mimes:jpg,jpeg,png,gif,svg'],
         ])->validate();
 
         $data = [
             'name' => "Carousel",
             'description' => $request['name'],
             'file' => $request['file'],
-            'width' => 1200,
-            'height' => 900,
+            'width' => 2050,
+            'height' => 1200,
         ];
 
         $asset = $this->save_asset_image($data);

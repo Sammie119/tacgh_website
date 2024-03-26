@@ -11,5 +11,5 @@ class VWGallery extends Model
 
     protected $table = 'vw_gallery';
 
-    protected $primaryKey = 'group_n';
+    protected $primaryKey = 'gallery_group';
 }

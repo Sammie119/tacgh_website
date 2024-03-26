@@ -39,14 +39,15 @@ class GalleryController extends Controller
             'file.*' => ['required','image', 'mimes:jpg,jpeg,png,gif,svg', 'distinct','max:2048'],
             'post' => ['nullable', 'integer'],
             'width' => ['required', 'integer'],
+            'tag' => ['required'],
             'height' => ['required', 'integer'],
         ])->validate();
-        
+
         $num = Gallery::select('gallery_group')->orderByDesc('id')->first()->gallery_group ?? 0;
 // dd($request->file('file'));
         foreach ($request->file('file') as $key => $image) {
             $input['file'] = $key."_".date('Y')."_".time().'.'.$image->getClientOriginalExtension();
-        
+
             $destinationPath = public_path('/uploads');
             $imgFile = Image::make($image->getRealPath());
             $imgFile->resize($request['width'], $request['height'], function ($constraint) {
@@ -60,6 +61,7 @@ class GalleryController extends Controller
                 'gallery_group' => $num + 1,
                 'width' => $request['width'],
                 'height' => $request['height'],
+                'tag' => $request['tag'],
                 'post_id' => empty($request['post']) ? 0 : $request['post'],
                 'created_by' => get_logged_in_user_id(),
                 'updated_by' => get_logged_in_user_id(),
@@ -98,14 +100,15 @@ class GalleryController extends Controller
             'file.*' => ['required','image', 'mimes:jpg,jpeg,png,gif,svg', 'distinct','max:2048'],
             'post' => ['nullable', 'integer'],
             'width' => ['required', 'integer'],
+            'tag' => ['required'],
             'height' => ['required', 'integer'],
         ])->validate();
-        
+
         $num = Gallery::find($id)->gallery_group;
 // dd($request->file('file'));
         foreach ($request->file('file') as $key => $image) {
             $input['file'] = $key."_".date('Y')."_".time().'.'.$image->getClientOriginalExtension();
-        
+
             $destinationPath = public_path('/uploads');
             $imgFile = Image::make($image->getRealPath());
             $imgFile->resize($request['width'], $request['height'], function ($constraint) {
@@ -120,7 +123,7 @@ class GalleryController extends Controller
                 'width' => $request['width'],
                 'height' => $request['height'],
                 'post_id' => $request['post'],
-                'created_by' => get_logged_in_user_id(),
+                'tag' => $request['tag'],
                 'updated_by' => get_logged_in_user_id(),
             ]);
         }
@@ -139,7 +142,7 @@ class GalleryController extends Controller
             if(file_exists(public_path($image->path))){
                 unlink(public_path($image->path));
             }
-    
+
             $image->delete();
         }
 

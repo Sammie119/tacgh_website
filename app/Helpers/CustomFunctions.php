@@ -4,11 +4,14 @@ use App\Models\AboutPage;
 use App\Models\Asset;
 use App\Models\Carousel;
 use App\Models\ContactPage;
+use App\Models\Devotion;
 use App\Models\Gallery;
 use App\Models\HomePage;
+use App\Models\Message;
 use App\Models\Post;
 use App\Models\ServicePage;
 use App\Models\Staff;
+use App\Models\TestimoniesForm;
 use App\Models\User;
 use App\Models\VWEvent;
 
@@ -66,15 +69,15 @@ if(!function_exists("get_singe_image_gallery")){
 }
 
 if(!function_exists("get_about")){
-    function get_about($name): string
+    function get_about($name): array
     {
         $item = AboutPage::where('name', $name)->first();
 
         if($item){
-            return $item->subject;
+            return $item->toArray();
         }
 
-        return -1;
+        return [];
     }
 }
 
@@ -92,9 +95,22 @@ if(!function_exists("get_event")){
 }
 
 if(!function_exists("get_stuff")){
-    function get_stuff($status = 'staff'): array
+    function get_stuff($status = 'Leadership'): array
     {
-        $staff = Staff::where('is_staff_or_board', $status)->orderBy('name')->get();
+        $staff = Staff::where('is_staff_or_board', $status)->orderBy('id')->get();
+
+        if($staff){
+            return $staff->toArray();
+        }
+
+        return [];
+    }
+}
+
+if(!function_exists("get_leadership")){
+    function get_leadership($position): array
+    {
+        $staff = Staff::where('position', $position)->where('is_staff_or_board', 'Leadership')->first();
 
         if($staff){
             return $staff->toArray();
@@ -147,7 +163,25 @@ if(!function_exists("get_services")){
 if(!function_exists("get_posts")){
     function get_posts($num = null): array
     {
-        $posts = Post::orderByDesc('id')->limit($num)->get();
+        $posts = Post::where('is_published', 1)->orderByDesc('id')->limit($num)->get();
+
+        if($posts){
+            return $posts->toArray();
+        }
+
+        return [];
+    }
+}
+
+if(!function_exists("get_devotion")){
+    function get_devotion($description = 'Devotion'): array
+    {
+        $date = date('Y-m-d');
+        $posts = Devotion::where([
+            'description' => $description,
+            'd_date' => $date,
+            'status' => 1,
+        ])->first();
 
         if($posts){
             return $posts->toArray();
@@ -167,6 +201,27 @@ if(!function_exists("get_posts_single")){
         }
 
         return [];
+    }
+}
+
+if(!function_exists("get_posts_image")){
+    function get_posts_image($num, $limit = null)
+    {
+        if ($limit == null){
+            $posts = Gallery::select('path')->where('post_id', $num)->first();
+
+            if($posts){
+                return $posts->path;
+            }
+        } else {
+            $posts = Gallery::select('path')->where('post_id', $num)->get();
+
+            if($posts){
+                return $posts;
+            }
+        }
+
+        return "No Image";
     }
 }
 
@@ -190,6 +245,32 @@ if(!function_exists("get_home_page")){
 
         if($item){
             return $item->toArray();
+        }
+
+        return [];
+    }
+}
+
+if(!function_exists("get_directorate")){
+    function get_directorate($name): array
+    {
+        $item = ServicePage::where('name', $name)->first();
+
+        if($item){
+            return $item->toArray();
+        }
+
+        return [];
+    }
+}
+
+if(!function_exists("get_testimonies")){
+    function get_testimonies(): array
+    {
+        $message = TestimoniesForm::where('is_read', 1)->get();
+
+        if($message){
+            return $message->toArray();
         }
 
         return [];

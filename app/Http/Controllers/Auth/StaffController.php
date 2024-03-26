@@ -35,9 +35,8 @@ class StaffController extends Controller
         // dd($request->all());
         Validator::make($request->all(), [
             'name' => ['required', 'max:255'],
-            'description' => ['required', 'max:255'],
+            'description' => ['required'],
             'file' => ['required', 'image', 'mimes:jpg,jpeg,png,gif'],
-            'contact' => ['required'],
             'position' => ['required'],
             'is_staff_or_board' => ['required'],
             'whatsapp' => ['required'],
@@ -54,11 +53,7 @@ class StaffController extends Controller
 
         $asset = $this->save_asset_image($data);
 
-        Staff::firstOrCreate(
-            [
-                'contact' => $request['contact'],
-            ],
-            [
+        Staff::firstOrCreate([
                 'name' => $request['name'],
                 'description' => $request['description'],
                 'position' => $request['position'],
@@ -67,7 +62,6 @@ class StaffController extends Controller
                 'facebook_address' => $request['facebook'],
                 'twitter_address' => $request['twitter'],
                 'instagram_address' => $request['instagram'],
-                'linkedin_address' => $request['linked_in'],
                 'asset_id' => $asset->id,
                 'created_by' => get_logged_in_user_id(),
                 'updated_by' => get_logged_in_user_id(),
@@ -101,9 +95,8 @@ class StaffController extends Controller
         // dd($request->all());
         Validator::make($request->all(), [
             'name' => ['required', 'max:255'],
-            'description' => ['required', 'max:255'],
+            'description' => ['required'],
             'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif'],
-            'contact' => ['required'],
             'position' => ['required'],
             'is_staff_or_board' => ['required'],
             'whatsapp' => ['required'],
@@ -127,13 +120,11 @@ class StaffController extends Controller
                 'name' => $request['name'],
                 'description' => $request['description'],
                 'position' => $request['position'],
-                'contact' => $request['contact'],
                 'is_staff_or_board' => $request['is_staff_or_board'],
                 'whatsapp_address' => $request['whatsapp'],
                 'facebook_address' => $request['facebook'],
                 'twitter_address' => $request['twitter'],
                 'instagram_address' => $request['instagram'],
-                'linkedin_address' => $request['linked_in'],
                 'asset_id' => $staff->asset_id,
                 'updated_by' => get_logged_in_user_id(),
         ]);

@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', 'TACCCU - Contacts')
+@section('title', 'The Apostolic Church-Ghana - Contacts')
 
 @section('content')
 
@@ -20,7 +20,7 @@
 
     <!-- Main content -->
     @isset($contact->id)
-    
+
     <section class="content">
         <div class="container-fluid">
             @if ($errors->any())
@@ -137,7 +137,7 @@
                         <div class="form-group">
                             <label for="exampleInputSubject">Contact Subject</label>
                             <input id="subject" type="text" class="form-control @error('subject') is-invalid @enderror" name="subject" value="{{ old('subject') }}" required autocomplete="subject">
-    
+
                             @error('subject')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -146,7 +146,7 @@
                         </div>
                     </div>
                     <!-- /.card-body -->
-    
+
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
@@ -157,8 +157,8 @@
         </section>
 
     @endisset
-    
-    
+
+
 </div>
 @endsection
 

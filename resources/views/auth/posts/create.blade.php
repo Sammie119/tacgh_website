@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', 'TACCCU - Posts')
+@section('title', 'The Apostolic Church-Ghana - Posts')
 
 @push('styles')
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
@@ -15,7 +15,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">{{ isset($user->id) ? 'Update Post' : 'Add Post' }}</h1>
+              <h1 class="m-0">{{ isset($post->id) ? 'Update Post' : 'Add Post' }}</h1>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -198,17 +198,17 @@
 @endsection
 
 @push('scripts')
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
-<script>
-    $(document).ready(function() {
-        $('#summernote').summernote();
-    });
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote();
+        });
 
-    $('#summernote').summernote({
-        height: 300,                 // set editor height
-        tabsize: 2,
-    });
-</script>
+        $('#summernote').summernote({
+            height: 300,                 // set editor height
+            tabsize: 2,
+        });
+    </script>
 @endpush
 
