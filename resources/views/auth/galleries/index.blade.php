@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', 'TACCCU - Gallery')
+@section('title', 'The Apostolic Church-Ghana - Gallery')
 
 @section('content')
 
@@ -40,6 +40,7 @@
                             <th>Description</th>
                             <th>Count</th>
                             <th>Group #</th>
+                            <th>Tag</th>
                             <th>Actions</th>
                           </tr>
                         </thead>
@@ -51,6 +52,7 @@
                                 <td>{{ $gallery->description }}</td>
                                 <td>{{ $gallery->count }}</td>
                                 <td>{{ $gallery->gallery_group }}</td>
+                                <td>{{ $gallery->tag }}</td>
                                 <td>
                                   <a href="galleries/{{ $gallery->gallery_group }}" class="btn btn-sm btn-info"><i class="nav-icon fas fa-eye"></i></a>
                                   <a href="galleries/{{ $gallery->gallery_group }}/delete" onclick="return confirm('This record will be deleted!! Are you sure?')" class="btn btn-sm btn-danger"><i class="nav-icon fas fa-trash"></i></a>

@@ -47,12 +47,17 @@ class HomePageController extends Controller
             'height' => 900,
         ];
 
-        $asset = $this->save_asset_image($data);
+        $asset = 1;
+        if ($request->has('file')){
+            $asset = $this->save_asset_image($data);
+
+            $asset = $asset->id;
+        }
 
         HomePage::create([
             'name' => $request['name'],
             'title' => $request['title'],
-            'asset_id' => $asset->id,
+            'asset_id' => $asset,
             'description' => $request['description'],
             'created_by' => get_logged_in_user_id(),
             'updated_by' => get_logged_in_user_id(),

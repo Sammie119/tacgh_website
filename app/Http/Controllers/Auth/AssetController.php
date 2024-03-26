@@ -15,7 +15,7 @@ class AssetController extends Controller
      */
     public function index()
     {
-        $assets = Asset::orderByDesc('id')->get();
+        $assets = Asset::orderByDesc('id')->where('id', '!=', 1)->get();
         return view('auth.assets.index', ['assets' => $assets]);
     }
 

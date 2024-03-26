@@ -1,38 +1,58 @@
 @extends('layouts.website')
 
-@push('styles')
-    
-@endpush
-
 @section('content')
-    <!-- ======= Hero Section ======= -->
-    <section id="cta" class="cta main-hero" style="background: no-repeat linear-gradient(rgba(40, 58, 90, 0.9), rgba(40, 58, 90, 0.9)), url({{ asset(get_asset('Hero Image')) }}) center center">
-        <div class="container" data-aos="zoom-in">
 
-        <div class="row">
-            <div class="col-lg-12 text-center text-lg-start">
-                <h1 class="text-center text-white text-bold">{{ $gallery->last()->name }}</h1>
-                <p class="text-center"> {{ $gallery->last()->description }}</p>
-            </div>
-        </div>
+    <main id="main" style="margin-top: 5.5rem;">
 
-        </div>
-    </section>
-    
-    <main id="main">
-        <div class="container-fluid mt-4 mb-4">
-            <div class="row">
-                @foreach ($gallery as $item)
-                    <a href="{{ asset($item->path) }}" data-toggle="lightbox" data-gallery="gallery" class="col-sm-3">
-                        <img src="{{ asset($item->path) }}" class="img-fluid">
-                    </a>
-                @endforeach
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>{{ $gallery->last()->name }}</h2>
+                    <ol>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="{{ url()->previous() }}">Gallery</a></li>
+                        <li>{{ $gallery->last()->name }}</li>
+                    </ol>
+                </div>
+
             </div>
-        </div>
-    </main>
+        </section><!-- End Breadcrumbs Section -->
+
+        <section id="portfolio-details" class="portfolio-details">
+            <div class="container">
+
+              <div class="row gy-4">
+
+                    <!-- ======= Portfolio Section ======= -->
+                    <section id="portfolio" class="portfolio">
+                        <div class="container" style="margin-top: -60px">
+
+                            <div class="row portfolio-container" data-aos="fade-up">
+                                @foreach ($gallery as $item)
+                                    <div class="col-lg-4 col-md-6 portfolio-item filter-app mb-3">
+                                        <div class="portfolio-wrap">
+                                            <img src="{{ asset($item->path) }}" class="img-fluid" alt="">
+                                            <div class="portfolio-links">
+                                                <a href="{{ asset($item->path) }}" data-gallery="portfolioGallery" class="portfolio-lightbox"><i class="fa fa-eye"></i></a>
+                                                <a href="/media/news/{{ $item->post_id }}" title="More Details"><i class="bx bx-link"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+
+                        </div>
+                    </section><!-- End Portfolio Section -->
+
+              </div>
+
+            </div>
+        </section>
+
+    </main><!-- End #main -->
 
 @endsection
 
-@push('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
-@endpush
+

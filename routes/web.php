@@ -17,6 +17,8 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\AboutPageController;
 use App\Http\Controllers\Auth\DashboardController;
 use App\Http\Controllers\Auth\ContactPageController;
+use App\Http\Controllers\Auth\DevotionController;
+use App\Http\Controllers\Auth\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,10 +35,18 @@ Auth::routes();
 
 Route::controller(DashboardController::class)->group(function() {
     Route::get('dashboard', 'dashboard')->name('dashboard');
+
+    // Contact
     Route::get('contact-forms', 'contactForms');
     Route::get('contact-forms/{id}', 'showForms');
     Route::get('contact-forms/{id}/delete', 'deleteForms');
-    // Route::get('logout', 'logout')->name('logout');
+    // Prayer request
+    Route::get('prayer-forms', 'prayerRequestForms');
+    Route::get('prayer-forms/{id}', 'showPrayerRequestForms');
+    // Testimony
+    Route::get('testimony-forms', 'testimonyForms');
+    Route::get('testimony-forms/{id}', 'editTestimonyForms');
+    Route::get('testimony-forms/edit/{id}', 'showTestimonyForms');
 });
 
 Route::controller(RegisterController::class)->group(function() {
@@ -82,24 +92,60 @@ Route::get('carousels/{carousels}/delete', [CarouselController::class, 'destroy'
 Route::resource('home-page', HomePageController::class);
 Route::get('home-page/{home-page}/delete', [HomePageController::class, 'destroy']);
 
+Route::resource('message', MessageController::class);
+Route::get('message/{message}/delete', [MessageController::class, 'destroy']);
+
+Route::resource('devotions', DevotionController::class);
+Route::get('devotions/{devotions}/delete', [DevotionController::class, 'destroy']);
+
 //Website
 
 Route::controller(HomeController::class)->group(function(){
+    // Home
     Route::get('/', 'index');
-    Route::get('/about', 'about');
-    Route::get('services', 'services');
+    // About
+    Route::get('/about/brief_history', 'about');
+    Route::get('/about/mission_vision', 'missionVision');
+    Route::get('/about/rules_belief', 'rulesBelief');
+    Route::get('/about/rules_conduct', 'rulesConduct');
+    Route::get('/about/tenets', 'tenets');
+
+    Route::get('directorate/{directorate}', 'baseDirectorate');
+    Route::get('directorate/social_services/{directorate}', 'socialServices');
+
+    // Contact
     Route::get('contact', 'contact');
-    Route::get('gallery', 'gallery');
-    Route::get('gallery/{group_id}', 'view_gallery');
-    Route::get('downloads', 'downloads');
-    Route::get('downloads/{id}', 'downloadFile');
-    Route::post('forms/contact', 'postForms')->name('forms.contact');
-    Route::get('news', 'news');
-    Route::get('news/{news_id}', 'view_news');
-    Route::get('stuff', 'stuff');
-    Route::get('board', 'board_members');
-    Route::get('committee', 'committee_members');
-    Route::get('old_members', 'former_board_members');
-    Route::get('calender', 'calender');
+
+    // Prayer Request
+    Route::get('prayer_request', 'prayerRequest');
+
+    // Gallery
+    Route::get('media/gallery', 'gallery');
+    Route::get('media/gallery/{group_id}', 'view_gallery');
+
+    // Media
+    Route::get('media/downloads/{downloads}', 'downloads');
+    Route::get('media/messages/{messages}', 'messages');
+    Route::get('media/download/{id}', 'downloadFile');
+    Route::get('media/message/{id}', 'playMessages');
+
+    Route::post('forms/contact', 'postForms');
+    Route::post('forms/prayer_request', 'prayerRequestForms');
+    Route::post('forms/testimony', 'testimoniesForms');
+
+
+    // Post
+    Route::get('media/news', 'news');
+    Route::get('media/news/{news_id}', 'view_news');
+
+    // Leadership
+    Route::get('leadership/general_council', 'generalCouncil');
+    Route::get('leadership/executives', 'executivesMembers');
+    Route::get('leadership/council_apostles_prophets', 'councilApostlesProphets');
+    Route::get('leadership/management_team', 'managementTeam');
+    Route::get('leadership/former_leaders', 'formerLeaderships');
+    Route::get('leadership/profile/{id}', 'profileOfLeadership');
+
+    Route::get('event/calender', 'calender');
 });
 

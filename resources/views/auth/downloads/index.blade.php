@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', 'TACCCU - Downloads')
+@section('title', 'The Apostolic Church-Ghana - Downloads')
 
 @section('content')
 
@@ -38,9 +38,10 @@
                             <th style="width: 20px">#</th>
                             <th>Name</th>
                             <th>Description</th>
-                            <th>File type</th>
-                            <th>downloads</th>
-                            <th>Actions</th>
+                            <th style="width: 150px">Document type</th>
+                            <th style="width: 100px">File type</th>
+                            <th style="width: 100px">downloads</th>
+                            <th style="width: 50px">Actions</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -49,6 +50,7 @@
                                 <td>{{ ++$key }}</td>
                                 <td>{{ $download->name }}</td>
                                 <td>{{ $download->description }}</td>
+                                <td>{{ $download->type }}</td>
                                 <td>{{ $download->file_ext }}</td>
                                 <td>{{ $download->downloads }}</td>
                                 <td>

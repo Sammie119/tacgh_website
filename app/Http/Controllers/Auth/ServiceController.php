@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Asset;
 use App\Models\ServicePage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Intervention\Image\Facades\Image;
 
 class ServiceController extends Controller
 {
@@ -35,24 +33,15 @@ class ServiceController extends Controller
     {
 //        dd($request->all());
         Validator::make($request->all(), [
+            'name' => ['required', 'max:255'],
             'title' => ['required', 'max:255'],
             'description' => ['required'],
-            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg'],
+            // 'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg'],
         ])->validate();
 
-        $data = [
-            'name' => "Service",
-            'description' => $request['title'],
-            'file' => $request['file'],
-            'width' => 1200,
-            'height' => 900,
-        ];
-
-        $asset = $this->save_asset_image($data);
-
         ServicePage::create([
+            'name' => $request['name'],
             'title' => $request['title'],
-            'asset_id' => $asset->id,
             'description' => $request['description'],
             'created_by' => get_logged_in_user_id(),
             'updated_by' => get_logged_in_user_id(),
@@ -84,26 +73,17 @@ class ServiceController extends Controller
     public function update(Request $request, string $id)
     {
         Validator::make($request->all(), [
+            'name' => ['required', 'max:255'],
             'title' => ['required', 'max:255'],
             'description' => ['required'],
-            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg'],
+            // 'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg'],
         ])->validate();
 
         $service = ServicePage::find($id);
 
-        $data = [
-            'name' => "Service",
-            'description' => $request['title'],
-            'file' => $request['file'],
-            'width' => 1200,
-            'height' => 900,
-        ];
-
-        $this->update_asset_image($service->asset_id, $data);
-
         $service->update([
+            'name' => $request['name'],
             'title' => $request['title'],
-            'asset_id' => $service->asset_id,
             'description' => $request['description'],
             'updated_by' => get_logged_in_user_id(),
         ]);
@@ -118,7 +98,7 @@ class ServiceController extends Controller
     {
         $service = ServicePage::find($id);
 
-        $this->delete_asset_image($service->asset_id);
+        // $this->delete_asset_image($service->asset_id);
 
         $service->delete();
 

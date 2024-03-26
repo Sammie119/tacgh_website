@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', 'TACCCU - Staff')
+@section('title', 'The Apostolic Church-Ghana - Staff')
 
 @section('content')
 
@@ -37,8 +37,6 @@
                           <tr>
                             <th style="width: 20px">#</th>
                             <th>Name</th>
-                            <th>Description</th>
-                            <th>Contact</th>
                             <th>Position</th>
                             <th>Status</th>
                             <th>Photo</th>
@@ -50,8 +48,6 @@
                             <tr>
                                 <td>{{ ++$key }}</td>
                                 <td>{{ $staff->name }}</td>
-                                <td>{{ $staff->description }}</td>
-                                <td>{{ $staff->contact }}</td>
                                 <td>{{ $staff->position }}</td>
                                 <td>{{ $staff->is_staff_or_board }}</td>
                                 <td><img src="{{ asset(get_asset_path($staff->asset_id)) }}" alt="{{ $staff->name }}" width="80"></td>

@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', 'TACCCU - About-Us')
+@section('title', 'The Apostolic Church-Ghana - About-Us')
 
 @section('content')
 

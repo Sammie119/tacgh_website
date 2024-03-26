@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', 'TACCCU - Events')
+@section('title', 'The Apostolic Church-Ghana - Events')
 
 @section('content')
 
@@ -20,7 +20,7 @@
 
     <!-- Main content -->
     @isset($event->id)
-    
+
     <section class="content">
         <div class="container-fluid">
             @if ($errors->any())
@@ -108,7 +108,7 @@
                             <div class="form-group">
                                 <label for="exampleInputTime"> Time</label>
                                 <input id="start_time" type="time" class="form-control @error('start_time') is-invalid @enderror" name="start_time" value="{{ $event->start_time }}" required autocomplete="start_time">
-                                
+
                                 @error('start_time')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -192,7 +192,7 @@
                                     <div class="form-group">
                                         <label for="exampleInputStartDate"> Start Date</label>
                                         <input id="start_date" type="date" min="{{ date('Y-m-d') }}" class="form-control @error('start_date') is-invalid @enderror" name="start_date" value="{{ old('start_date') }}" required autocomplete="start_date">
-        
+
                                         @error('start_date')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -205,7 +205,7 @@
                                     <div class="form-group">
                                         <label for="exampleInputEndDate"> End Date</label>
                                         <input id="end_date" type="date" min="{{ date('Y-m-d') }}" class="form-control @error('end_date') is-invalid @enderror" name="end_date" value="{{ old('end_date') }}" autocomplete="end_date">
-        
+
                                         @error('end_date')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -218,7 +218,7 @@
                                     <div class="form-group">
                                         <label for="exampleInputTime"> Time</label>
                                         <input id="start_time" type="time" class="form-control @error('start_time') is-invalid @enderror" name="start_time" value="{{ old('start_time') }}" required autocomplete="start_time">
-        
+
                                         @error('start_time')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -230,7 +230,7 @@
 
                         </div>
                         <!-- /.card-body -->
-        
+
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
@@ -241,8 +241,8 @@
         </section>
 
     @endisset
-    
-    
+
+
 </div>
 @endsection
 

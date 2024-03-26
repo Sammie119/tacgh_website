@@ -1,0 +1,87 @@
+.active {
+    /* padding: 0; */
+    border-top: 2px solid red;
+}
+
+
+a.nav-link:hover {
+    color: #fff;
+    border-top: 2px solid red;
+}
+
+a.a_dropdown:hover {
+    color: #fff;
+    border-top: 2px solid red;
+}
+
+.nav-link.social_media {
+    padding: 0;
+    border-bottom: 0px;
+}
+
+.nav-link.social_media:hover {
+    color: #6a777d;
+}
+
+.c-img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(0.8);
+}
+
+a.more_arrows {
+    font-size: 26px;
+    display: inline-block;
+    padding: 2px 0;
+    border-radius: 50px;
+    transition: 0.3s ease-in-out;
+    /* margin: 8px; */
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    border: 2px solid #2f4d5a;
+    color: #2f4d5a;
+}
+
+a.more_arrows:hover {
+    border: 2px solid #49788c;
+    color: #49788c;
+}
+
+.testimonial-box {
+    text-align: left;
+    width: 96%;
+    border: 1px solid #fff;
+    background: white;
+    margin-left: 2%;
+    padding: 1rem;
+}
+
+.testimonial-item:hover {
+    transform: scale(1.05);
+}
+
+.testimony-more {
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+}
+
+.testimony-more:hover {
+    font-size: 14px;
+    color: #49788c;
+    font-weight: bold;
+}
+
+.box-buttom-two {
+    background: #000060;
+    border: 1px solid #000060;
+    color: #fff;
+}
+
+.box-buttom-two:hover {
+    background: #fff;
+    border: 1px solid #000060;
+    color: #000060;
+}

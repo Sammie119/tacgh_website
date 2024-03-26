@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', 'TACCCU - Users')
+@section('title', 'The Apostolic Church-Ghana - Users')
 
 @section('content')
 
@@ -20,7 +20,7 @@
 
     <!-- Main content -->
     @isset($user->id)
-    
+
         <section class="content">
             <div class="container-fluid">
                 <!-- general form elements -->
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <!-- /.card-body -->
-    
+
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>
@@ -135,7 +135,7 @@
                         </div>
                     </div>
                     <!-- /.card-body -->
-    
+
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
@@ -146,9 +146,9 @@
         </section>
 
     @endisset
-    
-    
+
+
 </div>
-    
+
 @endsection
 

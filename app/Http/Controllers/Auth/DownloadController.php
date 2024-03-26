@@ -34,6 +34,7 @@ class DownloadController extends Controller
         Validator::make($request->all(), [
             'name' => ['required', 'max:255'],
             'description' => ['required', 'max:255'],
+            'type' => ['required'],
             'file' => ['required', 'mimes:doc,docx,pdf', 'distinct','max:2048'],
         ])->validate();
 
@@ -43,7 +44,8 @@ class DownloadController extends Controller
 
         Download::firstOrCreate(
             [
-                'name' => $request['name']
+                'name' => $request['name'],
+                'type' => $request['type'],
             ],
             [
                 'description' => $request['description'],
