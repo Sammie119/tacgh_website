@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Models\ContactForm;
-use App\Models\PrayerRequestForm;
-use App\Models\TestimoniesForm;
 use App\Models\UserTracker;
+use Illuminate\Http\Request;
+use App\Models\TestimoniesForm;
+use App\Models\PrayerRequestForm;
+use App\Http\Controllers\Controller;
+use App\Models\Download;
+use App\Models\Message;
+use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -29,7 +33,14 @@ class DashboardController extends Controller
      */
     public function dashboard()
     {
-        return view('auth.dashboard');
+        $data = [
+            'users' => User::count(),
+            'posts' => Post::where('is_published', 1)->count(),
+            'sermons' => Message::count(),
+            'downloads' => Download::count()
+        ];
+
+        return view('auth.dashboard', ['data' => $data]);
     }
 
     public function contactForms()
