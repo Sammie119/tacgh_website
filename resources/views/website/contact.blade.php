@@ -88,9 +88,10 @@
                             <div class="text-center"><button
                                 {{-- class="g-recaptcha" --}}
                                 type="submit"
-                                {{-- data-sitekey="6Ld8YqMpAAAAAM4FyS7aw_OmhwFOcDAWfalyblKo"
+                                {{-- data-sitekey="{{ env('RECAPTCHAsitekey') }}"
                                 data-callback='onRecaptchaSuccess' --}}
-                                >Send Message</button></div>
+                                >Send Message</button>
+                            </div>
                         </form>
                     </div>
 

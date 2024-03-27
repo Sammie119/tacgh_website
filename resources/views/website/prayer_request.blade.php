@@ -61,7 +61,13 @@
                                     </div>
                                 @endif
                             </div>
-                            <div class="text-center"><button type="submit">Send Request</button></div>
+                            <div class="text-center"><button
+                                {{-- class="g-recaptcha" --}}
+                                type="submit"
+                                {{-- data-sitekey="{{ env('RECAPTCHAsitekey') }}"
+                                data-callback='onRecaptchaSuccess' --}}
+                                >Send Request</button>
+                            </div>
                         </form>
                     </div>
 
@@ -95,7 +101,13 @@
                                     </div>
                                 @endif
                             </div>
-                            <div class="text-center"><button type="submit">Send Testimony</button></div>
+                            <div class="text-center"><button
+                                {{-- class="g-recaptcha" --}}
+                                type="submit"
+                                {{-- data-sitekey="{{ env('RECAPTCHAsitekey') }}"
+                                data-callback='onRecaptchaSuccess' --}}
+                                >Send Testimony</button>
+                            </div>
                         </form>
                     </div>
 

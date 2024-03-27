@@ -137,7 +137,8 @@ class HomeController extends Controller
 
         // dd($request->all());
 
-        // $secret = '6Ld8YqMpAAAAAF0u2axUPdDEckbKHWC8fZUKvrFz';
+        $secret = env('RECAPTCHAsecretkey');
+        dd($secret);
 
         // $recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$request['g-recaptcha-response']}";
         //     $verify = json_decode(file_get_contents($recaptchaUrl));
