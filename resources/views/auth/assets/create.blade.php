@@ -69,7 +69,7 @@
                         <div class="form-group">
                             <label for="exampleInputFile">Asset</label>
                             <input id="file" type="file" class="form-control @error('file') is-invalid @enderror" name="file">
-                                <img alt="{{ $asset->asset_name }}" src="{{ asset($asset->path) }}" width="100" height="100">
+                                <img alt="{{ $asset->asset_name }}" src="{{ asset('public/'.$asset->path) }}" width="100" height="100">
                             @error('file')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

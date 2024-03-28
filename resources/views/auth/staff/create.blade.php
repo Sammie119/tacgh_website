@@ -62,7 +62,7 @@
                         <div class="form-group">
                             <label for="exampleInputFile">Picture (600 x 600 px)</label>
                             <input id="file" type="file" class="form-control @error('file') is-invalid @enderror" name="file">
-                            <img alt="{{ $staff->staff_name }}" src="{{ asset(get_asset_path($staff->asset_id)) }}" width="100">
+                            <img alt="{{ $staff->staff_name }}" src="{{ asset('public/'.get_asset_path($staff->asset_id)) }}" width="100">
                             @error('file')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

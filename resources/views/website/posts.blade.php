@@ -32,7 +32,7 @@
                         @endphp
                             <div class="col-lg-4 mb-2">
                                 <div class="card" style="width: 100%;">
-                                    <img src="{{ asset(get_posts_image($post['id'])) }}" class="card-img-top" alt="{{ get_posts_image($post['id']) }}">
+                                    <img src="{{ asset('public/'.get_posts_image($post['id'])) }}" class="card-img-top" alt="{{ get_posts_image($post['id']) }}">
                                     <div class="card-body">
                                       <h5 class="card-title">{{ $post['title'] }}</h5>
                                       <h6 style="color: #6a777d">Posted at: {{ date_format($date,"F j, Y") }}</h6>
