@@ -33,9 +33,9 @@
                                 @foreach ($gallery as $item)
                                     <div class="col-lg-4 col-md-6 portfolio-item filter-app mb-3">
                                         <div class="portfolio-wrap">
-                                            <img src="{{ asset($item->path) }}" class="img-fluid" alt="">
+                                            <img src="{{ asset('public/'.$item->path) }}" class="img-fluid" alt="">
                                             <div class="portfolio-links">
-                                                <a href="{{ asset($item->path) }}" data-gallery="portfolioGallery" class="portfolio-lightbox"><i class="fa fa-eye"></i></a>
+                                                <a href="{{ asset('public/'.$item->path) }}" data-gallery="portfolioGallery" class="portfolio-lightbox"><i class="fa fa-eye"></i></a>
                                                 <a href="/media/news/{{ $item->post_id }}" title="More Details"><i class="bx bx-link"></i></a>
                                             </div>
                                         </div>

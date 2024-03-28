@@ -29,14 +29,14 @@
                 <div class="row gy-4">
 
                     <div class="col-lg-8">
-                        {{-- <img src="{{ asset(get_asset_path($gc['asset_id'])) }}" class="card-img-top img-fluid mb-4" alt="{{ $gc['name'] }}">
+                        {{-- <img src="{{ asset('public/'.get_asset_path($gc['asset_id'])) }}" class="card-img-top img-fluid mb-4" alt="{{ $gc['name'] }}">
                         {!! $gc['description'] !!} --}}
                         <div class="row team">
 
                             @forelse ($gc as $leadership)
                                 <div class="col-lg-4 col-md-6 mb-4">
                                     <div class="member" data-aos="fade-up">
-                                        <div class="pic"><img src="{{ asset(get_asset_path($leadership['asset_id'])) }}" class="img-fluid" alt="{{ $leadership['name'] }}"></div>
+                                        <div class="pic"><img src="{{ asset('public/'.get_asset_path($leadership['asset_id'])) }}" class="img-fluid" alt="{{ $leadership['name'] }}"></div>
                                         <div class="member-info" style="text-wrap: balance">
                                             <h4>{{ $leadership['name'] }}</h4>
                                             <span>{{ $leadership['position'] }}</span>
@@ -59,7 +59,7 @@
                             @forelse ($exec as $executive)
                                 <div class="col-lg-4 col-md-6 mb-4">
                                     <div class="member" data-aos="fade-up">
-                                        <div class="pic"><img src="{{ asset(get_asset_path($executive['asset_id'])) }}" class="img-fluid" alt="{{ $leadership['name'] }}"></div>
+                                        <div class="pic"><img src="{{ asset('public/'.get_asset_path($executive['asset_id'])) }}" class="img-fluid" alt="{{ $leadership['name'] }}"></div>
                                         <div class="member-info" style="text-wrap: balance">
                                             <h4>{{ $executive['name'] }}</h4>
                                             <span>{{ $executive['position'] }}</span>
