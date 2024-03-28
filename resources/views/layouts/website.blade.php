@@ -10,27 +10,27 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{ asset('assets/sys_img/favicon.ico') }}" rel="icon">
-    {{-- <link href="{{ asset('assets/img/apple-touch-icon.png" rel="apple-touch-icon') }}"> --}}
+    <link href="{{ asset('public/assets/sys_img/favicon.ico') }}" rel="icon">
+    {{-- <link href="{{ asset('public/assets/img/apple-touch-icon.png" rel="apple-touch-icon') }}"> --}}
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Vendor CSS Files -->
-    <link href="{{ asset('assets/website/vendor/aos/aos.css')}}" rel="stylesheet">
-    <link href="{{ asset('assets/website/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/website/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/website/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/website/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/website/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/website/vendor/aos/aos.css')}}" rel="stylesheet">
+    <link href="{{ asset('public/assets/website/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/website/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/website/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/website/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/website/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
     @stack('styles')
 
     <!-- Template Main CSS File -->
-    <link href="{{ asset('assets/website/css/calander_style.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/website/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/website/css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/website/css/calander_style.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/website/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/assets/website/css/main.css') }}" rel="stylesheet">
 
     <!-- =======================================================
     * Template Name: Squadfree
@@ -49,7 +49,7 @@
             <div class="logo">
                 {{-- <h1 class="text-light"><a href="index.html"><span>TAC-GH</span></a></h1> --}}
                 <!-- Uncomment below if you prefer to use an image logo -->
-                <a href="index.html"><img src="{{ asset(get_asset('Logo')) }}" alt="Logo" class="img-fluid"></a>
+                <a href="index.html"><img src="{{ asset('public/'.get_asset('Logo')) }}" alt="Logo" class="img-fluid"></a>
             </div>
 
             <nav id="navbar" class="navbar" style="text-transform: uppercase;">
@@ -215,18 +215,18 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
-    <script src="{{ asset('assets/website/vendor/purecounter/purecounter_vanilla.js') }}"></script>
-    <script src="{{ asset('assets/website/vendor/aos/aos.js') }}"></script>
-    <script src="{{ asset('assets/website/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/website/vendor/glightbox/js/glightbox.min.js') }}"></script>
-    <script src="{{ asset('assets/website/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/website/vendor/swiper/swiper-bundle.min.js') }}"></script>
-    {{-- <script src="{{ asset('assets/website/vendor/php-email-form/validate.js') }}"></script> --}}
+    <script src="{{ asset('public/assets/website/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+    <script src="{{ asset('public/assets/website/vendor/aos/aos.js') }}"></script>
+    <script src="{{ asset('public/assets/website/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('public/assets/website/vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ asset('public/assets/website/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('public/assets/website/vendor/swiper/swiper-bundle.min.js') }}"></script>
+    {{-- <script src="{{ asset('public/assets/website/vendor/php-email-form/validate.js') }}"></script> --}}
 
-    <script src="{{ asset('assets/website/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('public/assets/website/js/jquery.min.js') }}"></script>
     <!-- Template Main JS File -->
-    <script src="{{ asset('assets/website/js/calander_main.js') }}"></script>
-    <script src="{{ asset('assets/website/js/main.js') }}"></script>
+    <script src="{{ asset('public/assets/website/js/calander_main.js') }}"></script>
+    <script src="{{ asset('public/assets/website/js/main.js') }}"></script>
     @stack('scripts')
 
 </body>

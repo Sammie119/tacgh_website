@@ -51,7 +51,7 @@
                                 <td>{{ ++$key }}</td>
                                 <td>{{ $carousel->name }}</td>
                                 <td>{{ substr($carousel->description, 0, 50) }}</td>
-                                <td><img src="{{ asset(get_asset_path($carousel->asset_id)) }}" width="80" alt="{{ $carousel->title }}"></td>
+                                <td><img src="{{ asset('public/'.get_asset_path($carousel->asset_id)) }}" width="80" alt="{{ $carousel->title }}"></td>
                                 <td>{{ substr(get_posts_single($carousel->post_id)['title'], 0, 50) }}</td>
                                 <td>
                                     <a href="carousels/{{ $carousel->id }}/edit" class="btn btn-sm btn-primary"><i class="nav-icon fas fa-edit"></i></a>
