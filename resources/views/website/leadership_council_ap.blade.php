@@ -28,7 +28,7 @@
                 <div class="row gy-4">
 
                     <div class="col-lg-8">
-                        <img src="{{ asset('public/'.get_asset_path($gc['asset_id'])) }}" class="card-img-top img-fluid mb-4" alt="{{ $gc['name'] }}">
+                        <img src="{{ asset(get_asset_path($gc['asset_id'])) }}" class="card-img-top img-fluid mb-4" alt="{{ $gc['name'] }}">
                         {!! $gc['description'] !!}
                     </div>
 

@@ -34,7 +34,7 @@
                             <div class="swiper-wrapper align-items-center">
                                 @foreach (get_posts_image($post->id, 'all') as $image)
                                     <div class="swiper-slide">
-                                        <img src="{{ asset('public/'.$image->path) }}" alt="image">
+                                        <img src="{{ asset($image->path) }}" alt="image">
                                     </div>
                                 @endforeach
                             </div>

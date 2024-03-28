@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="form-group">
-                        <img src="{{ asset('public/'.$asset->path) }}" alt="{{ $asset->asset_name }}">
+                        <img src="{{ asset($asset->path) }}" alt="{{ $asset->asset_name }}">
                     </div>
 
                     <div class="form-group">
