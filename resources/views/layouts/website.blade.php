@@ -174,7 +174,7 @@
 
                     <div class="col-lg-4 col-md-6 footer-newsletter">
 
-                        <section class="ftco-section" style="margin-top: -27%; padding-top: 0px; padding-bottom: 0px;">
+                        <section class="ftco-section">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-12">

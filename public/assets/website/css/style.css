@@ -415,11 +415,11 @@ h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 100vh;
+  height: auto;
   /* background: linear-gradient(rgba(55, 142, 181, 0.5), rgba(55, 142, 181, 0.2)), url("../img/hero-bg.jpg") top center; */
   background-size: cover;
   position: relative;
-  margin-bottom: -90px;
+  margin-bottom: -10%;
 }
 
 #hero .hero-container {
@@ -437,7 +437,7 @@ h6 {
 
 #hero h1 {
   margin: 0 0 10px 0;
-  font-size: 64px;
+  font-size: 3em;
   font-weight: 700;
   line-height: 56px;
   text-transform: uppercase;
@@ -448,7 +448,7 @@ h6 {
 #hero h2 {
   color: #fff;
   margin-bottom: 50px;
-  font-size: 20px;
+  font-size: 1.5em;
   text-transform: uppercase;
   font-weight: 700;
   text-shadow: -1px 0 2px #2f4d5a;
@@ -481,12 +481,12 @@ h6 {
 
 @media (max-width: 768px) {
   #hero h1 {
-    font-size: 28px;
+    font-size: 1.2em;
     line-height: 36px;
   }
 
   #hero h2 {
-    font-size: 18px;
+    font-size: 0.8em;
     line-height: 24px;
     margin-bottom: 30px;
   }

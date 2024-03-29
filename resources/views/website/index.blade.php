@@ -9,7 +9,7 @@
 
                 @forelse (get_carousel() as $key => $carousel)
                     <div class="carousel-item @if ($key === 0) active @endif">
-                        <img src="{{ asset(get_asset_path($carousel['asset_id'])) }}" class="d-block w-100 c-img" alt="{{ $carousel['name'] }}">
+                        <img src="{{ asset(get_asset_path($carousel['asset_id'])) }}" class="d-block img-fluid" alt="{{ $carousel['name'] }}">
                         <div class="hero-container" data-aos="fade-up">
                             <h1>{{ $carousel['name'] }}</h1>
                             <h2>{{ $carousel['description'] }}</h2>
@@ -18,7 +18,7 @@
                     </div>
                 @empty
                     <div class="carousel-item active">
-                        <img src="{{ asset('assets/website/img/hero-bg.jpg')}}" class="d-block w-100 c-img" alt="image">
+                        <img src="{{ asset('assets/website/img/hero-bg.jpg')}}" class="d-block img-fluid" alt="image">
                         <div class="hero-container" data-aos="fade-up">
                             <h1>No Carousel</h1>
                             <h2>You have not set any Carousel</h2>
@@ -164,7 +164,7 @@
                 @php $news = get_home_page("News"); @endphp
                 <div class="section-title" data-aos="fade-in" data-aos-delay="100">
                     <h2>{{ $news['title'] }}</h2>
-                    <p>{!! $news['description'] !!}</p>
+                    {{-- <p>{!! $news['description'] !!}</p> --}}
                 </div>
 
                 <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
@@ -274,7 +274,7 @@
                 @php $leadership = get_home_page("Leadership"); @endphp
                 <div class="section-title" data-aos="fade-in" data-aos-delay="100">
                     <h2>{{ $leadership['title'] }}</h2>
-                    <p>{!! $leadership['description'] !!}</p>
+                    {{-- <p>{!! $leadership['description'] !!}</p> --}}
                 </div>
 
                 <div class="row">
