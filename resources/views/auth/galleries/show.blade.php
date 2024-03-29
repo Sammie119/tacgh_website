@@ -66,7 +66,7 @@
                         @foreach ($galleries as $gallery)
                             <div class="col-4 mt-2 mb-2">
                                 <div class="form-group">
-                                    <img src="{{ asset('public/'.$gallery->path) }}" alt="{{ $gallery->name }}" width="300">
+                                    <img src="{{ asset($gallery->path) }}" alt="{{ $gallery->name }}" width="300">
                                 </div>
 
                                 <div class="form-group">

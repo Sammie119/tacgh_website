@@ -9,7 +9,7 @@
 
                 @forelse (get_carousel() as $key => $carousel)
                     <div class="carousel-item @if ($key === 0) active @endif">
-                        <img src="{{ asset('public/'.get_asset_path($carousel['asset_id'])) }}" class="d-block w-100 c-img" alt="{{ $carousel['name'] }}">
+                        <img src="{{ asset(get_asset_path($carousel['asset_id'])) }}" class="d-block w-100 c-img" alt="{{ $carousel['name'] }}">
                         <div class="hero-container" data-aos="fade-up">
                             <h1>{{ $carousel['name'] }}</h1>
                             <h2>{{ $carousel['description'] }}</h2>
@@ -176,7 +176,7 @@
                             @if(get_posts_image($post['id']) != 'No Image')
                                 <div class="swiper-slide" style="position: relative;">
                                     <div class="testimonial-item">
-                                        <img src="{{ asset('public/'.get_posts_image($post['id'])) }}" class="card-img-top img-fluid" alt="{{ $post['title'] }}" style="padding-left: 2px; padding-right: 2px;">
+                                        <img src="{{ asset(get_posts_image($post['id'])) }}" class="card-img-top img-fluid" alt="{{ $post['title'] }}" style="padding-left: 2px; padding-right: 2px;">
                                         <div class="testimonial-box" style="margin-top: -2rem; position: absolute; padding-bottom: 0px"><h4>{{ date_format($date,"F j, Y") }}</h4></div>
                                         <div class="testimonial-box" style="padding-top: 0px">
                                             <h3>{{ $post['title'] }}</h3>
@@ -208,7 +208,7 @@
 
         <!-- ======= Advertisment Section ======= -->
         @php $advert = get_home_page("Advertisment"); @endphp
-        <section id="cta" class="cta" style="background: linear-gradient(rgba(103, 176, 209, 0.8), rgba(103, 176, 209, 0.8)), url('{{ asset('public/'.get_asset_path($advert['asset_id'])) }}') fixed center center;">
+        <section id="cta" class="cta" style="background: linear-gradient(rgba(103, 176, 209, 0.8), rgba(103, 176, 209, 0.8)), url('{{ asset(get_asset_path($advert['asset_id'])) }}') fixed center center;">
             <div class="container" data-aos="zoom-in">
                 <div class="text-center">
                     <h3>{{ $advert['title'] }}</h3>
@@ -286,7 +286,7 @@
                     {{-- {{ dd($president) }} --}}
                     <div class="col-lg-4 col-md-6">
                         <div class="member" data-aos="fade-up">
-                            <div class="pic"><img src="{{ asset('public/'.get_asset_path($president['asset_id'])) }}" class="img-fluid" alt=""></div>
+                            <div class="pic"><img src="{{ asset(get_asset_path($president['asset_id'])) }}" class="img-fluid" alt=""></div>
                             <div class="member-info">
                                 <h4>{{ $president['name'] }}</h4>
                                 <span>{{ $president['position'] }}</span>
@@ -302,7 +302,7 @@
 
                     <div class="col-lg-4 col-md-6">
                         <div class="member" data-aos="fade-up" data-aos-delay="150">
-                            <div class="pic"><img src="{{ asset('public/'.get_asset_path($vice['asset_id'])) }}" class="img-fluid" alt=""></div>
+                            <div class="pic"><img src="{{ asset(get_asset_path($vice['asset_id'])) }}" class="img-fluid" alt=""></div>
                             <div class="member-info">
                                 <h4>{{ $vice['name'] }}</h4>
                                 <span>{{ $vice['position'] }}</span>
@@ -318,7 +318,7 @@
 
                     <div class="col-lg-4 col-md-6">
                         <div class="member" data-aos="fade-up" data-aos-delay="300">
-                            <div class="pic"><img src="{{ asset('public/'.get_asset_path($gs['asset_id'])) }}" class="img-fluid" alt=""></div>
+                            <div class="pic"><img src="{{ asset(get_asset_path($gs['asset_id'])) }}" class="img-fluid" alt=""></div>
                             <div class="member-info">
                                 <h4>{{ $gs['name'] }}</h4>
                                 <span>{{ $gs['position'] }}</span>

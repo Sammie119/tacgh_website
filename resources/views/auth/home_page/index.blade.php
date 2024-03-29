@@ -52,7 +52,7 @@
                                 <td>{{ $home->name }}</td>
                                 <td>{{ $home->title }}</td>
                                 <td>{{ substr($home->description, 0, 50) }}</td>
-                                <td><img src="{{ asset('public/'.get_asset_path($home->asset_id)) }}" width="80" alt="{{ $home->title }}"></td>
+                                <td><img src="{{ asset(get_asset_path($home->asset_id)) }}" width="80" alt="{{ $home->title }}"></td>
                                 <td>
                                     <a href="home-page/{{ $home->id }}/edit" class="btn btn-sm btn-primary"><i class="nav-icon fas fa-edit"></i></a>
                                     <a href="home-page/{{ $home->id }}/delete" onclick="return confirm('This record will be deleted!! Are you sure?')" class="btn btn-sm btn-danger"><i class="nav-icon fas fa-trash"></i></a>

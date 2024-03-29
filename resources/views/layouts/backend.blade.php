@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>@yield('title')</title>
 
-  <link href="{{ asset('public/assets/sys_img/favicon.ico') }}" rel="icon">
+  <link href="{{ asset('assets/sys_img/favicon.ico') }}" rel="icon">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="{{ asset('public/assets/auth/plugins/fontawesome-free/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/auth/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- IonIcons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('public/assets/auth/dist/css/adminlte.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/auth/dist/css/adminlte.min.css') }}">
   <!-- toastr alert -->
-  <link rel="stylesheet" href="{{ asset('public/assets/auth/alert/toastr_alert.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/auth/alert/toastr_alert.css') }}">
 
   @stack('styles')
 </head>
@@ -106,7 +106,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/dashboard" class="brand-link">
-      <img src="{{ asset('public/assets/auth/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="{{ asset('assets/auth/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-bold">TACGH Admin</span>
     </a>
 
@@ -458,13 +458,13 @@
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="{{ asset('public/assets/auth/plugins/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/auth/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap -->
-<script src="{{ asset('public/assets/auth/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/auth/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE -->
-<script src="{{ asset('public/assets/auth/dist/js/adminlte.js') }}"></script>
+<script src="{{ asset('assets/auth/dist/js/adminlte.js') }}"></script>
 <!-- toastr alert -->
-<script src="{{ asset('public/assets/auth/alert/toastr_alert.js') }}"></script>
+<script src="{{ asset('assets/auth/alert/toastr_alert.js') }}"></script>
 
 @stack('scripts')
 
