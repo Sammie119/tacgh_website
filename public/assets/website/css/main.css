@@ -86,14 +86,3 @@ a.more_arrows:hover {
     color: #000060;
 }
 
-.ftco-section {
-    margin-top: -27%;
-    padding-top: 0px;
-    padding-bottom: 0px;
-}
-
-@media (max-width: 768px) {
-    .ftco-section {
-        margin-top: -7%;
-    }
-  }
