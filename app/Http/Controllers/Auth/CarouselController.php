@@ -16,8 +16,8 @@ class CarouselController extends Controller
     public function index()
     {
         $carousels = Carousel::all();
-        $post = Post::select('title');
-        return view('auth.carousel.index', ['carousels' => $carousels, 'post' => $post]);
+        // $post = Post::select('title');
+        return view('auth.carousel.index', ['carousels' => $carousels]);
     }
 
     /**
@@ -35,26 +35,24 @@ class CarouselController extends Controller
     {
     //    dd($request->all());
         Validator::make($request->all(), [
-            'name' => ['required', 'max:255'],
-            'description' => ['required'],
-            'post_id' =>['required', 'integer'],
             'file' => ['required', 'image', 'mimes:jpg,jpeg,png,gif,svg'],
+            'description' => ['required'],
         ])->validate();
 
         $data = [
             'name' => "Carousel",
-            'description' => $request['name'],
+            'description' => 'Carousel',
             'file' => $request['file'],
-            'width' => 2050,
-            'height' => 1200,
+            'width' => 1920,
+            'height' => 1080,
         ];
 
         $asset = $this->save_asset_image($data);
 
         Carousel::create([
-            'name' => $request['name'],
+            'name' => 'Carousel',
             'asset_id' => $asset->id,
-            'post_id' => $request['post_id'],
+            'post_id' => 1,
             'description' => $request['description'],
             'created_by' => get_logged_in_user_id(),
             'updated_by' => get_logged_in_user_id(),
@@ -86,28 +84,26 @@ class CarouselController extends Controller
     public function update(Request $request, string $id)
     {
         Validator::make($request->all(), [
-            'name' => ['required', 'max:255'],
-            'description' => ['required'],
-            'post_id' =>['required', 'integer'],
             'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg'],
+            'description' => ['required'],
         ])->validate();
 
         $carousel = Carousel::find($id);
 
         $data = [
             'name' => "Carousel",
-            'description' => $request['name'],
+            'description' => "Carousel",
             'file' => $request['file'],
-            'width' => 1200,
-            'height' => 900,
+            'width' => 1920,
+            'height' => 1080,
         ];
 
         $this->update_asset_image($carousel->asset_id, $data);
 
         $carousel->update([
-            'name' => $request['name'],
+            'name' => "Carousel",
             'asset_id' => $carousel->asset_id,
-            'post_id' => $request['post_id'],
+            'post_id' => 1,
             'description' => $request['description'],
             'updated_by' => get_logged_in_user_id(),
         ]);

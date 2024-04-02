@@ -97,7 +97,23 @@ if(!function_exists("get_event")){
 if(!function_exists("get_stuff")){
     function get_stuff($status = 'Leadership'): array
     {
-        $staff = Staff::where('is_staff_or_board', $status)->orderBy('id')->get();
+        $staff = Staff::where('is_staff_or_board', $status)
+                    ->where('name', '!=', 'Executive')
+                    ->where('name', '!=', 'Management Team')
+                    ->orderBy('id')->get();
+
+        if($staff){
+            return $staff->toArray();
+        }
+
+        return [];
+    }
+}
+
+if(!function_exists("get_stuff_except")){
+    function get_stuff_except($status): array
+    {
+        $staff = Staff::where('name', $status)->first();
 
         if($staff){
             return $staff->toArray();

@@ -32,6 +32,9 @@
                         {{-- <img src="{{ asset(get_asset_path($gc['asset_id'])) }}" class="card-img-top img-fluid mb-4" alt="{{ $gc['name'] }}">
                         {!! $gc['description'] !!} --}}
                         <div class="row team">
+                            <p style="text-align: justify;">
+                                {!! get_stuff_except('Management Team')['description'] !!}
+                            </p>
 
                             @forelse ($gc as $leadership)
                                 <div class="col-lg-4 col-md-6 mb-4">

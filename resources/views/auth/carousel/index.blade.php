@@ -39,9 +39,9 @@
                           <tr>
                             <th style="width: 20px">#</th>
                             <th>Name</th>
-                            <th>Description</th>
+                            <th>Dimention</th>
                             <th>Image</th>
-                            <th>Post</th>
+                            <th>Wait</th>
                             <th>Actions</th>
                           </tr>
                         </thead>
@@ -49,10 +49,10 @@
                             @forelse ($carousels as $key => $carousel)
                             <tr>
                                 <td>{{ ++$key }}</td>
-                                <td>{{ $carousel->name }}</td>
-                                <td>{{ substr($carousel->description, 0, 50) }}</td>
+                                <td>{{ $carousel->name }} {{ $carousel->id }}</td>
+                                <td>1920X1080</td>
                                 <td><img src="{{ asset(get_asset_path($carousel->asset_id)) }}" width="80" alt="{{ $carousel->title }}"></td>
-                                <td>{{ substr(get_posts_single($carousel->post_id)['title'], 0, 50) }}</td>
+                                <td>{{ $carousel->description }}</td>
                                 <td>
                                     <a href="carousels/{{ $carousel->id }}/edit" class="btn btn-sm btn-primary"><i class="nav-icon fas fa-edit"></i></a>
                                     <a href="carousels/{{ $carousel->id }}/delete" onclick="return confirm('This record will be deleted!! Are you sure?')" class="btn btn-sm btn-danger"><i class="nav-icon fas fa-trash"></i></a>

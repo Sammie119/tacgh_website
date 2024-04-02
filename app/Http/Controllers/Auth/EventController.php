@@ -40,8 +40,24 @@ class EventController extends Controller
             'end_date' => ['nullable','date'],
             'start_time' => ['date_format:H:i'],
             'venue' => ['required', 'max:255'],
+            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg'],
         ])->validate();
-        
+
+        $data = [
+            'name' => "Event",
+            'description' => "Event",
+            'file' => $request['file'],
+            'width' => 600,
+            'height' => 600,
+        ];
+
+        $asset = 1;
+        if ($request->has('file')){
+            $asset = $this->save_asset_image($data);
+
+            $asset = $asset->id;
+        }
+
         Event::firstOrCreate(
             [
                 'name' => $request['name'],
@@ -49,6 +65,7 @@ class EventController extends Controller
             ],
             [
                 'description' => $request['description'],
+                'asset_id' => $asset,
                 'venue' => $request['venue'],
                 'end_date' => empty($request['end_date']) ? $request['start_date'] : $request['end_date'],
                 'start_time' => $request['start_time'],
@@ -90,13 +107,27 @@ class EventController extends Controller
             'end_date' => ['nullable','date'],
             // 'start_time' => ['date_format:H:i'],
             'venue' => ['required', 'max:255'],
+            'file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif,svg'],
         ])->validate();
-        
-        Event::find($id)->update(
+
+        $event = Event::find($id);
+
+        $data = [
+            'name' => "Event",
+            'description' => "Event",
+            'file' => $request['file'],
+            'width' => 600,
+            'height' => 600,
+        ];
+
+        $this->update_asset_image($event->asset_id, $data);
+
+        $event->update(
             [
                 'name' => $request['name'],
                 'start_date' => $request['start_date'],
                 'description' => $request['description'],
+                'asset_id' => $event->asset_id,
                 'venue' => $request['venue'],
                 'end_date' => empty($request['end_date']) ? $request['start_date'] : $request['end_date'],
                 'start_time' => $request['start_time'],

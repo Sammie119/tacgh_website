@@ -27,17 +27,25 @@
                 <div class="col-lg-8">
                     <div class="row">
                         @forelse (get_event() as $event)
-                            <div class="col-md-6 col-lg-6 mb-3" >
-                                <div class="icon-box" data-aos="fade-up" data-aos-delay="100" style="border-bottom: 1px solid #000">
-                                    <small class="text-muted">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item"><i class="bi bi-calendar"></i> {{ ($event['start_date'] == $event['end_date']) ? get_date_time_format($event['start_date']) : get_date_time_format($event['start_date'])." - ".get_date_time_format($event['end_date']) }}</li>
-                                            <li class="list-inline-item"><i class="bi bi-clock"></i> {{ get_date_time_format($event['start_time'], 'time') }}</li> <br>
-                                            <li class="list-inline-item mt-2"><i class="bi bi-geo-alt"></i> {{ $event['venue'] }}</li>
-                                        </ul>
-                                    </small>
-                                    <h4 class="title">{{ $event['name'] }}</h4>
-                                    <p class="text-muted">{{ $event['description'] }}</p>
+                            <div class="col-12 mb-3" style="border-bottom: 1px solid #000">
+                                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="row">
+                                    <div class="col-5">
+                                        <img src="{{ asset(get_asset_path($event['asset_id'])) }}" class="img-fluid mb-3" alt="Event Image">
+                                    </div>
+                                    <div class="col-7">
+                                        <h3 class="title">{{ $event['name'] }}</h3>
+                                        <p>{{ $event['description'] }}</p>
+                                        <small class="text-muted">
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item"><i class="bi bi-calendar"></i> {{ ($event['start_date'] == $event['end_date']) ? get_date_time_format($event['start_date']) : get_date_time_format($event['start_date'])." - ".get_date_time_format($event['end_date']) }}</li>
+                                                <li class="list-inline-item"><i class="bi bi-clock"></i> {{ get_date_time_format($event['start_time'], 'time') }}</li> <br>
+                                                <li class="list-inline-item mt-2"><i class="bi bi-geo-alt"></i> {{ $event['venue'] }}</li>
+                                            </ul>
+                                        </small>
+                                    </div>
+
+                                </div>
                                 </div>
                             </div>
                         @empty

@@ -44,21 +44,21 @@
                     @method('PUT')
                     @csrf
                 <div class="card-body">
-                    <div class="form-group">
-                    <label for="exampleInputTitle"> Name</label>
-                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $carousel->name }}" required autocomplete="name" autofocus>
+                    {{-- <div class="form-group">
+                        <label for="exampleInputTitle"> Name</label>
+                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $carousel->name }}" required autocomplete="name" autofocus>
 
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                    </div>
+                    </div> --}}
 
                     <div class="form-group">
-                        <label for="exampleInputImage"> Image (Size: 2050x1200)</label>
-                        <input id="file" type="file" class="form-control @error('file') is-invalid @enderror" name="file">
-                        <img alt="{{ $carousel->name }}" src="{{ asset(get_asset_path($carousel->asset_id)) }}" width="100" height="100">
+                        <label for="exampleInputImage"> Image (Size: 1920x1080)</label>
+                        <input id="file" type="file" class="form-control mb-3 @error('file') is-invalid @enderror" name="file">
+                        <img alt="{{ $carousel->name }}" src="{{ asset(get_asset_path($carousel->asset_id)) }}" width="100%">
                         @error('file')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -67,22 +67,17 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputpost">Related Post</label>
-                        <select id="post_id" class="form-control @error('post_id') is-invalid @enderror" name="post_id" required>
-                            <option selected disabled>--Select--</option>
-                            @foreach (get_posts() as $post)
-                                <option @selected($carousel->post_id == $post['id']) value="{{ $post['id'] }}">{{ $post['title'] }}</option>
-                            @endforeach
-                        </select>
+                        <label for="exampleInputpost">Wait (Millieconds)</label>
+                        <input id="description" type="number" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ $carousel->description }}" required autocomplete="description">
 
-                        @error('post_id')
+                        @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
                     </div>
 
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="exampleInputDescription">Description</label>
                         <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ $carousel->description }}" required autocomplete="description">
 
@@ -91,7 +86,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                    </div>
+                    </div> --}}
                 </div>
                 <!-- /.card-body -->
 
@@ -128,19 +123,19 @@
                     <form method="POST" action="/carousels" enctype="multipart/form-data">
                         @csrf
                     <div class="card-body">
-                        <div class="form-group">
-                        <label for="exampleInputTitle"> Name</label>
-                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        {{-- <div class="form-group">
+                            <label for="exampleInputTitle"> Name</label>
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div>
+                        </div> --}}
 
                         <div class="form-group">
-                            <label for="exampleInputImage"> Image (Size: 2050x1200)</label>
+                            <label for="exampleInputImage"> Image (Size: 1920x1080)</label>
                             <input id="file" type="file" class="form-control @error('file') is-invalid @enderror" name="file" required>
 
                             @error('file')
@@ -151,22 +146,17 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputpost">Related Post</label>
-                            <select id="post_id" class="form-control @error('post_id') is-invalid @enderror" name="post_id" required>
-                                <option selected disabled>--Select--</option>
-                                @foreach (get_posts() as $post)
-                                    <option value="{{ $post['id'] }}">{{ $post['title'] }}</option>
-                                @endforeach
-                            </select>
+                            <label for="exampleInputpost">Wait (Millieconds)</label>
+                            <input id="description" type="number" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description">
 
-                            @error('post_id')
+                            @error('description')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
 
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="exampleInputDescription">Description</label>
                             <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description">
 
@@ -175,7 +165,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div>
+                        </div> --}}
                     </div>
                     <!-- /.card-body -->
 

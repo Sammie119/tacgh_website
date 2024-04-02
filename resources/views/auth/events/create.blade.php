@@ -40,7 +40,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form method="POST" action="/events/{{ $event->id }}">
+                <form method="POST" action="/events/{{ $event->id }}" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                 <div class="card-body">
@@ -60,6 +60,17 @@
                         <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ $event->description }}" required autocomplete="description">
 
                         @error('description')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputImage"> Image (Size: 600x600)</label>
+                        <input id="file" type="file" class="form-control mb-3 @error('file') is-invalid @enderror" name="file">
+                        <img alt="{{ $event->name }}" src="{{ asset(get_asset_path($event->asset_id)) }}" width="15%">
+                        @error('file')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -151,7 +162,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form method="POST" action="/events">
+                    <form method="POST" action="/events" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
@@ -170,6 +181,17 @@
                                 <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description">
 
                                 @error('description')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputImage"> Image (Size: 600x600)</label>
+                                <input id="file" type="file" class="form-control mb-3 @error('file') is-invalid @enderror" name="file">
+
+                                @error('file')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

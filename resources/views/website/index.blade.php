@@ -4,25 +4,25 @@
 
     <!-- ======= Hero Section ======= -->
     <section id="hero">
-        <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
             <div class="carousel-inner">
 
                 @forelse (get_carousel() as $key => $carousel)
-                    <div class="carousel-item @if ($key === 0) active @endif">
-                        <img src="{{ asset(get_asset_path($carousel['asset_id'])) }}" class="d-block img-fluid" alt="{{ $carousel['name'] }}">
+                    <div class="carousel-item @if ($key === 0) active @endif" style="border-top: 0px">
+                        <img src="{{ asset(get_asset_path($carousel['asset_id'])) }}" class="d-block w-100 img-fluid" alt="{{ $carousel['name'] }}">
                         <div class="hero-container" data-aos="fade-up">
-                            <h1>{{ $carousel['name'] }}</h1>
-                            <h2>{{ $carousel['description'] }}</h2>
-                            <a href="/media/news/{{ $carousel['post_id'] }}" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a>
+                            {{-- <h1>{{ $carousel['name'] }}</h1> --}}
+                            {{-- <h2>{{ $carousel['description'] }}</h2> --}}
+                            {{-- <a href="/media/news/{{ $carousel['post_id'] }}" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a> --}}
                         </div>
                     </div>
                 @empty
                     <div class="carousel-item active">
                         <img src="{{ asset('assets/website/img/hero-bg.jpg')}}" class="d-block img-fluid" alt="image">
                         <div class="hero-container" data-aos="fade-up">
-                            <h1>No Carousel</h1>
-                            <h2>You have not set any Carousel</h2>
-                            <a href="#" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a>
+                            {{-- <h1>No Carousel</h1> --}}
+                            {{-- <h2>You have not set any Carousel</h2> --}}
+                            {{-- <a href="#" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a> --}}
                         </div>
                     </div>
                 @endforelse
@@ -118,22 +118,30 @@
                 </div>
 
                 <div class="row">
-                    @forelse (get_event(3) as $event)
-						<div class="col-md-6 col-lg-4">
+                    @forelse (get_event(4) as $event)
+						<div class="col-md-6 col-lg-6">
                             <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                                <small class="text-muted">
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item"><i class="bi bi-calendar"></i> {{ ($event['start_date'] == $event['end_date']) ? get_date_time_format($event['start_date']) : get_date_time_format($event['start_date'])." - ".get_date_time_format($event['end_date']) }}</li>
-                                        <li class="list-inline-item"><i class="bi bi-clock"></i> {{ get_date_time_format($event['start_time'], 'time') }}</li> <br>
-                                        <li class="list-inline-item mt-2"><i class="bi bi-geo-alt"></i> {{ $event['venue'] }}</li>
-                                    </ul>
-                                </small>
-                                <h3 class="title">{{ $event['name'] }}</h3>
-                                <p>{{ $event['description'] }}</p>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <img src="{{ asset(get_asset_path($event['asset_id'])) }}" class="img-fluid" alt="Event Image">
+                                    </div>
+                                    <div class="col-7">
+                                        <h3 class="title">{{ $event['name'] }}</h3>
+                                        <p>{{ $event['description'] }}</p>
+                                        <small class="text-muted">
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item"><i class="bi bi-calendar"></i> {{ ($event['start_date'] == $event['end_date']) ? get_date_time_format($event['start_date']) : get_date_time_format($event['start_date'])." - ".get_date_time_format($event['end_date']) }}</li>
+                                                <li class="list-inline-item"><i class="bi bi-clock"></i> {{ get_date_time_format($event['start_time'], 'time') }}</li> <br>
+                                                <li class="list-inline-item mt-2"><i class="bi bi-geo-alt"></i> {{ $event['venue'] }}</li>
+                                            </ul>
+                                        </small>
+                                    </div>
+
+                                </div>
                             </div>
 						</div>
 					@empty
-                        <div class="col-md-6 col-lg-4 ">
+                        <div class="col-md-6 col-lg-6">
                             <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
                                 <small class="text-muted">
                                     <ul class="list-inline">
@@ -168,36 +176,38 @@
                 </div>
 
                 <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                    <div class="swiper-wrapper">
-                        @forelse (get_posts() as $post)
-                            @php
-                                $date = date_create($post['created_at']);
-                            @endphp
-                            @if(get_posts_image($post['id']) != 'No Image')
-                                <div class="swiper-slide" style="position: relative;">
-                                    <div class="testimonial-item">
-                                        <img src="{{ asset(get_posts_image($post['id'])) }}" class="card-img-top img-fluid" alt="{{ $post['title'] }}" style="padding-left: 2px; padding-right: 2px;">
-                                        <div class="testimonial-box" style="margin-top: -2rem; position: absolute; padding-bottom: 0px"><h4>{{ date_format($date,"F j, Y") }}</h4></div>
-                                        <div class="testimonial-box" style="padding-top: 0px">
+                    <div class="portfolio-details-slider swiper">
+                        <div class="swiper-wrapper align-items-center">
+                            @forelse (get_posts() as $post)
+                                @php
+                                    $date = date_create($post['created_at']);
+                                @endphp
+                                @if(get_posts_image($post['id']) != 'No Image')
+                                    <div class=" row swiper-slide">
+                                        <div class="col-5">
+                                            <img src="{{ asset(get_posts_image($post['id'])) }}" class="img-fluid" alt="{{ $post['title'] }}">
+                                        </div>
+                                        <div class="col-7">
+                                            <small><b>Admin</b></small><small style="color: #999;"> - {{ date_format($date,"F j, Y") }}</small>
+
                                             <h3>{{ $post['title'] }}</h3>
                                             <small style="color: #999;">{{ $post['description'] }}</small>
                                             <div class="text-left mt-3">
                                                 <a class="testimony-more" href="/media/news/{{ $post['id'] }}">Continue reading...</a>
                                             </div>
                                         </div>
+
                                     </div>
-                                </div><!-- End testimonial item -->
-                            @endif
-                        @empty
-                            <div>
-                                No Post Found
-                            </div>
-                        @endforelse
-
+                                @endif
+                            @empty
+                                <div>
+                                    No Post Found
+                                </div>
+                            @endforelse
+                        </div>
+                        <div class="swiper-pagination" style="display: none"></div>
+                        <div class="swiper-pagination"></div>
                     </div>
-
-                    <div class="swiper-pagination"></div>
-                </div>
 
                 <div class="text-center mt-3" data-aos="fade-up" data-aos-delay="300">
                     <a href="/media/news" class="more_arrows"><i class="bx bx-chevrons-down"></i></a>
@@ -208,12 +218,12 @@
 
         <!-- ======= Advertisment Section ======= -->
         @php $advert = get_home_page("Advertisment"); @endphp
-        <section id="cta" class="cta" style="background: linear-gradient(rgba(103, 176, 209, 0.8), rgba(103, 176, 209, 0.8)), url('{{ asset(get_asset_path($advert['asset_id'])) }}') fixed center center;">
+        <section id="cta" class="cta" style="background: linear-gradient(rgba(103, 176, 209, 0.8), rgba(103, 176, 209, 0.8)), url('{{ asset('assets/website/img/cta-bg.jpg') }}') fixed center center;">
             <div class="container" data-aos="zoom-in">
                 <div class="text-center">
                     <h3>{{ $advert['title'] }}</h3>
-                    <p> {!! $advert['description'] !!}</p>
-                    {{-- <a class="cta-btn" href="#">Services</a> --}}
+                    {{-- <p> {!! $advert['description'] !!}</p> --}}
+                    <img src="{{ asset(get_asset_path($advert['asset_id'])) }}" class="img-fluid" alt="Social Service">
                 </div>
 
                 {{-- <div class="text-center mt-3" data-aos="fade-up" data-aos-delay="300">
@@ -244,7 +254,7 @@
                                         <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                     </p>
                                     <h3>{{ $testimony['name'] }}</h3>
-                                    <h4>Member</h4>
+                                    {{-- <h4>Member</h4> --}}
                                 </div>
                             </div><!-- End testimonial item -->
                         @empty

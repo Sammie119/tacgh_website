@@ -43,8 +43,8 @@ class HomePageController extends Controller
             'name' => "Home Page",
             'description' => $request['title'],
             'file' => $request['file'],
-            'width' => 1200,
-            'height' => 900,
+            'width' => 1234,
+            'height' => 250,
         ];
 
         $asset = 1;
@@ -102,8 +102,8 @@ class HomePageController extends Controller
             'name' => "Home Page",
             'description' => $request['title'],
             'file' => $request['file'],
-            'width' => 1200,
-            'height' => 900,
+            'width' => 1234,
+            'height' => 250,
         ];
 
         $this->update_asset_image($home->asset_id, $data);

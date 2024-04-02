@@ -414,6 +414,7 @@ h6 {
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
+  margin-top: 2%;
   width: 100%;
   height: auto;
   /* background: linear-gradient(rgba(55, 142, 181, 0.5), rgba(55, 142, 181, 0.2)), url("../img/hero-bg.jpg") top center; */
@@ -437,7 +438,7 @@ h6 {
 
 #hero h1 {
   margin: 0 0 10px 0;
-  font-size: 3em;
+  font-size: 2em;
   font-weight: 700;
   line-height: 56px;
   text-transform: uppercase;
@@ -448,7 +449,7 @@ h6 {
 #hero h2 {
   color: #fff;
   margin-bottom: 50px;
-  font-size: 1.5em;
+  font-size: 1em;
   text-transform: uppercase;
   font-weight: 700;
   text-shadow: -1px 0 2px #2f4d5a;
