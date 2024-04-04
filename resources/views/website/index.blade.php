@@ -3,7 +3,7 @@
 @section('content')
 
     <!-- ======= Hero Section ======= -->
-    <section id="hero">
+    <section id="hero" style="width: 100%; height: auto; margin-bottom: -10%;">
         <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
             <div class="carousel-inner">
 
