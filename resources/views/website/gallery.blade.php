@@ -45,18 +45,20 @@
                             </div>
                             <div class="row portfolio-container" data-aos="fade-up">
                                 @forelse ($gallery as $item)
-                                    <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $item->tag }} mb-3">
-                                        <div class="portfolio-wrap">
-                                            <img src="{{ asset(get_singe_image_gallery($item->gallery_group)) }}" class="img-fluid" alt="">
-                                            <div class="portfolio-links">
-                                                <a href="/media/gallery/{{ $item->gallery_group }}"><i class="fa fa-chevron-right"></i></a>
-                                                <a href="/media/news/{{ $item->post_id }}" title="More Details"><i class="bx bx-link"></i></a>
-                                            </div>
-                                            <div class="mt-2 text-center">
-                                                {{ $item->name }}
+                                    @if($item->count > 1)
+                                        <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $item->tag }} mb-3">
+                                            <div class="portfolio-wrap">
+                                                <img src="{{ asset(get_singe_image_gallery($item->gallery_group)) }}" class="img-fluid" alt="">
+                                                <div class="portfolio-links">
+                                                    <a href="/media/gallery/{{ $item->gallery_group }}"><i class="fa fa-chevron-right"></i></a>
+                                                    <a href="/media/news/{{ $item->post_id }}" title="More Details"><i class="bx bx-link"></i></a>
+                                                </div>
+                                                <div class="mt-2 text-center">
+                                                    {{ $item->name }}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endif
                                 @empty
                                     <div>
                                         <h3>Gallery is Empty</h3>
