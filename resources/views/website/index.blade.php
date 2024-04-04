@@ -212,55 +212,7 @@
                 </div>
 
             </div>
-        </section>
-        {{-- <section id="testimonials" class="testimonials">
-            <div class="container">
-                @php $news = get_home_page("News"); @endphp
-                <div class="section-title" data-aos="fade-in" data-aos-delay="100">
-                    <h2>{{ $news['title'] }}</h2>
-                </div>
-
-                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                    <div class="portfolio-details-slider swiper">
-                        <div class="swiper-wrapper align-items-center">
-                            @forelse (get_posts() as $post)
-                                @php
-                                    $date = date_create($post['created_at']);
-                                @endphp
-                                @if(get_posts_image($post['id']) != 'No Image')
-                                    <div class=" row swiper-slide">
-                                        <div class="col-5">
-                                            <img src="{{ asset(get_posts_image($post['id'])) }}" class="img-fluid" alt="{{ $post['title'] }}">
-                                        </div>
-                                        <div class="col-7">
-                                            <small><b>Admin</b></small><small style="color: #999;"> - {{ date_format($date,"F j, Y") }}</small>
-
-                                            <h3>{{ $post['title'] }}</h3>
-                                            <small style="color: #999;">{{ $post['description'] }}</small>
-                                            <div class="text-left mt-3">
-                                                <a class="testimony-more" href="/media/news/{{ $post['id'] }}">Continue reading...</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                @endif
-                            @empty
-                                <div>
-                                    No Post Found
-                                </div>
-                            @endforelse
-                        </div>
-                        <div class="swiper-pagination" style="display: none"></div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-
-                <div class="text-center mt-3" data-aos="fade-up" data-aos-delay="300">
-                    <a href="/media/news" class="more_arrows"><i class="bx bx-chevrons-down"></i></a>
-                </div>
-
-            </div>
-        </section> --}}
-        <!-- End News Section -->
+        </section><!-- End News Section -->
 
         <!-- ======= Advertisment Section ======= -->
         @php $advert = get_home_page("Advertisment"); @endphp
@@ -272,57 +224,55 @@
                     <img src="{{ asset(get_asset_path($advert['asset_id'])) }}" class="img-fluid" alt="Social Service">
                 </div>
 
-                {{-- <div class="text-center mt-3" data-aos="fade-up" data-aos-delay="300">
-                    <a href="/services" class="more_arrows" style="color: #fff; border: 2px solid #fff"><i class="bx bx-chevrons-down"></i></a>
-                </div> --}}
-
             </div>
         </section><!-- End Advertisment Section -->
 
         <!-- ======= Testimonials Section ======= -->
-        <section id="testimonials" class="testimonials section-bg">
-            <div class="container">
-                @php $testimony = get_home_page("Testimony"); @endphp
-                <div class="section-title" data-aos="fade-in" data-aos-delay="100">
-                    <h2>{{ $testimony['title'] }}</h2>
-                    <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
-                </div>
-
-                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                    <div class="swiper-wrapper">
-
-                        @forelse (get_testimonies() as $testimony)
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <p>
-                                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                        {{ $testimony['message'] }}
-                                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                    </p>
-                                    <h3>{{ $testimony['name'] }}</h3>
-                                    {{-- <h4>Member</h4> --}}
-                                </div>
-                            </div><!-- End testimonial item -->
-                        @empty
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <p>
-                                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                            No Testimony is Entered
-                                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                    </p>
-                                    <h3>No Name</h3>
-                                    <h4>Nne</h4>
-                                </div>
-                            </div><!-- End testimonial item -->
-                        @endforelse
-
+        @if(get_testimonies())
+            <section id="testimonials" class="testimonials section-bg">
+                <div class="container">
+                    @php $testimony = get_home_page("Testimony"); @endphp
+                    <div class="section-title" data-aos="fade-in" data-aos-delay="100">
+                        <h2>{{ $testimony['title'] }}</h2>
+                        <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
                     </div>
-                    <div class="swiper-pagination"></div>
-                </div>
 
-            </div>
-        </section><!-- End Testimonials Section -->
+                    <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                        <div class="swiper-wrapper">
+
+                            @forelse (get_testimonies() as $testimony)
+                                <div class="swiper-slide">
+                                    <div class="testimonial-item">
+                                        <p>
+                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                            {{ $testimony['message'] }}
+                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                        <h3>{{ $testimony['name'] }}</h3>
+                                        {{-- <h4>Member</h4> --}}
+                                    </div>
+                                </div><!-- End testimonial item -->
+                            @empty
+                                <div class="swiper-slide">
+                                    <div class="testimonial-item">
+                                        <p>
+                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                                No Testimony is Entered
+                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                        <h3>No Name</h3>
+                                        <h4>Nne</h4>
+                                    </div>
+                                </div><!-- End testimonial item -->
+                            @endforelse
+
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+
+                </div>
+            </section><!-- End Testimonials Section -->
+        @endif
 
         <!-- ======= Leadership Section ======= -->
         <section id="team" class="team">
