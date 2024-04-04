@@ -204,7 +204,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-4">
+                            {{-- <div class="col-4">
                                 <div class="form-group">
                                     <label for="exampleInputwidth">Gallery Width</label>
                                     <input id="width" type="number" min="1" class="form-control @error('width') is-invalid @enderror" name="width" value="{{ old('width') }}" required autocomplete="width">
@@ -227,13 +227,13 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
-                            <div class="col-4">
+                            </div> --}}
+                            <div class="col-12">
                                 <div class="form-group">
                                     <label for="exampleInputDescription">Gallery Tag</label>
                                     <select id="tag" class="form-control @error('tag') is-invalid @enderror" name="tag" required>
                                         <option selected disabled>--Select Tag--</option>
-                                        <option>GSEC</option>
+                                        <option>GENC</option>
                                         <option>CAPS</option>
                                         <option>EXEC</option>
                                         <option>MGNT</option>

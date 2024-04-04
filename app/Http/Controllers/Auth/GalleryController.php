@@ -38,9 +38,9 @@ class GalleryController extends Controller
             'description' => ['required', 'max:255'],
             'file.*' => ['required','image', 'mimes:jpg,jpeg,png,gif,svg', 'distinct','max:2048'],
             'post' => ['nullable', 'integer'],
-            'width' => ['required', 'integer'],
+            // 'width' => ['required', 'integer'],
             'tag' => ['required'],
-            'height' => ['required', 'integer'],
+            // 'height' => ['required', 'integer'],
         ])->validate();
 
         $num = Gallery::select('gallery_group')->orderByDesc('id')->first()->gallery_group ?? 0;
@@ -50,17 +50,19 @@ class GalleryController extends Controller
 
             $destinationPath = public_path('/uploads');
             $imgFile = Image::make($image->getRealPath());
-            $imgFile->resize($request['width'], $request['height'], function ($constraint) {
-                $constraint->aspectRatio();
-            })->save($destinationPath.'/'.$input['file']);
+            $imgFile
+            // ->resize($request['width'], $request['height'], function ($constraint) {
+            //     $constraint->aspectRatio();
+            // })
+            ->save($destinationPath.'/'.$input['file']);
 
             Gallery::create([
                 'name' => $request['name'],
                 'description' => $request['description'],
                 'path' => 'uploads/'.$input['file'],
                 'gallery_group' => $num + 1,
-                'width' => $request['width'],
-                'height' => $request['height'],
+                'width' => 1, //$request['width'],
+                'height' => 1, //$request['height'],
                 'tag' => $request['tag'],
                 'post_id' => empty($request['post']) ? 0 : $request['post'],
                 'created_by' => get_logged_in_user_id(),
@@ -99,9 +101,9 @@ class GalleryController extends Controller
             'description' => ['required', 'max:255'],
             'file.*' => ['required','image', 'mimes:jpg,jpeg,png,gif,svg', 'distinct','max:2048'],
             'post' => ['nullable', 'integer'],
-            'width' => ['required', 'integer'],
+            // 'width' => ['required', 'integer'],
             'tag' => ['required'],
-            'height' => ['required', 'integer'],
+            // 'height' => ['required', 'integer'],
         ])->validate();
 
         $num = Gallery::find($id)->gallery_group;
@@ -111,17 +113,19 @@ class GalleryController extends Controller
 
             $destinationPath = public_path('/uploads');
             $imgFile = Image::make($image->getRealPath());
-            $imgFile->resize($request['width'], $request['height'], function ($constraint) {
-                $constraint->aspectRatio();
-            })->save($destinationPath.'/'.$input['file']);
+            $imgFile
+            // ->resize($request['width'], $request['height'], function ($constraint) {
+            //     $constraint->aspectRatio();
+            // })
+            ->save($destinationPath.'/'.$input['file']);
 
             Gallery::create([
                 'name' => $request['name'],
                 'description' => $request['description'],
                 'path' => 'uploads/'.$input['file'],
                 'gallery_group' => $num,
-                'width' => $request['width'],
-                'height' => $request['height'],
+                'width' => 1, //$request['width'],
+                'height' => 1, //$request['height'],
                 'post_id' => $request['post'],
                 'tag' => $request['tag'],
                 'updated_by' => get_logged_in_user_id(),

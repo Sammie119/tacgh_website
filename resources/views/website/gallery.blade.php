@@ -33,7 +33,7 @@
                                 <div class="col-lg-12 d-flex justify-content-center">
                                     <ul id="portfolio-flters">
                                         <li data-filter="*" class="filter-active">All</li>
-                                        <li data-filter=".filter-GSEC">GSEC</li>
+                                        <li data-filter=".filter-GSEC">GENC</li>
                                         <li data-filter=".filter-CAPS">CAPS</li>
                                         <li data-filter=".filter-EXEC">EXEC</li>
                                         <li data-filter=".filter-MGNT">MGNT</li>

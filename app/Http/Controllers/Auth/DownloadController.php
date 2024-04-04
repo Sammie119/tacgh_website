@@ -35,7 +35,7 @@ class DownloadController extends Controller
             'name' => ['required', 'max:255'],
             'description' => ['required', 'max:255'],
             'type' => ['required'],
-            'file' => ['required', 'mimes:doc,docx,pdf', 'distinct','max:2048'],
+            'file' => ['required', 'mimes:doc,docx,pdf', 'distinct','max:24880'],
         ])->validate();
 
         $fileName = date('Y')."_".time().'.'.$request->file->getClientOriginalExtension();

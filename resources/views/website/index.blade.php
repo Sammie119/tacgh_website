@@ -176,6 +176,51 @@
                 </div>
 
                 <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+                        @forelse (get_posts() as $post)
+                            @php
+                                $date = date_create($post['created_at']);
+                            @endphp
+                            @if(get_posts_image($post['id']) != 'No Image')
+                                <div class="swiper-slide" style="position: relative;">
+                                    <div class="testimonial-item">
+                                        <img src="{{ asset(get_posts_image($post['id'])) }}" class="card-img-top img-fluid" alt="{{ $post['title'] }}" style="padding-left: 2px; padding-right: 2px;">
+                                        <div class="testimonial-box" style="margin-top: -2rem; position: absolute; padding-bottom: 0px"><h4>{{ date_format($date,"F j, Y") }}</h4></div>
+                                        <div class="testimonial-box" style="padding-top: 0px">
+                                            <h3>{{ $post['title'] }}</h3>
+                                            <small style="color: #999;">{{ $post['description'] }}</small>
+                                            <div class="text-left mt-3">
+                                                <a class="testimony-more" href="/media/news/{{ $post['id'] }}">Continue reading...</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- End testimonial item -->
+                            @endif
+                        @empty
+                            <div>
+                                No Post Found
+                            </div>
+                        @endforelse
+
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+                </div>
+
+                <div class="text-center mt-3" data-aos="fade-up" data-aos-delay="300">
+                    <a href="/media/news" class="more_arrows"><i class="bx bx-chevrons-down"></i></a>
+                </div>
+
+            </div>
+        </section>
+        {{-- <section id="testimonials" class="testimonials">
+            <div class="container">
+                @php $news = get_home_page("News"); @endphp
+                <div class="section-title" data-aos="fade-in" data-aos-delay="100">
+                    <h2>{{ $news['title'] }}</h2>
+                </div>
+
+                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
                     <div class="portfolio-details-slider swiper">
                         <div class="swiper-wrapper align-items-center">
                             @forelse (get_posts() as $post)
@@ -214,7 +259,8 @@
                 </div>
 
             </div>
-        </section><!-- End News Section -->
+        </section> --}}
+        <!-- End News Section -->
 
         <!-- ======= Advertisment Section ======= -->
         @php $advert = get_home_page("Advertisment"); @endphp

@@ -49,7 +49,7 @@
             <div class="logo">
                 {{-- <h1 class="text-light"><a href="index.html"><span>TAC-GH</span></a></h1> --}}
                 <!-- Uncomment below if you prefer to use an image logo -->
-                <a href="index.html"><img src="{{ asset(get_asset('Logo')) }}" alt="Logo" class="img-fluid"></a>
+                <a href="/"><img src="{{ asset(get_asset('Logo')) }}" alt="Logo" class="img-fluid"></a>
             </div>
 
             <nav id="navbar" class="navbar" style="text-transform: uppercase;">
