@@ -83,8 +83,8 @@
                             <li><a href="/directorate/audit">Audit</a></li>
                             <li class="dropdown"><a href="#"><span>Social Services</span> <i class="bi bi-chevron-right"></i></a>
                                 <ul>
-                                  <li><a href="/directorate/social_services/tactv">TAC Press</a></li>
-                                  <li><a href="/directorate/social_services/tacpress">TACtv</a></li>
+                                  <li><a href="/directorate/social_services/tacpress">TAC Press</a></li>
+                                  <li><a href="/directorate/social_services/tactv">TACtv</a></li>
                                   <li><a href="/directorate/social_services/acts">ACTS</a></li>
                                   <li><a href="/directorate/social_services/agro">Agro</a></li>
                                   <li><a href="/directorate/social_services/siloam_hospitals">Siloam Hospitals</a></li>
@@ -165,7 +165,7 @@
                         <h4>Our Social Services</h4>
                         <ul>
                             <li><i class="bx bx-chevron-right"></i> <a href="/directorate/social_services/siloam_hospitals">Siloam Hospitals</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/directorate/social_services/tactv">TAC Press</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/directorate/social_services/tacpress">TAC Press</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="/directorate/social_services/agro">Agro</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="/directorate/social_services/tactv">TACtv</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="/directorate/social_services/facility">TACRCRC - Fafraha</a></li>
