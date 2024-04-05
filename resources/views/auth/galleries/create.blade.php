@@ -78,7 +78,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-4">
+                            {{-- <div class="col-4">
                                 <div class="form-group">
                                     <label for="exampleInputwidth">Gallery Width</label>
                                     <input id="width" type="number" min="1" class="form-control @error('width') is-invalid @enderror" name="width" value="{{ $gallery->width }}" readonly autocomplete="width">
@@ -101,13 +101,13 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
-                            <div class="col-4">
+                            </div> --}}
+                            <div class="col-12">
                                 <div class="form-group">
                                     <label for="exampleInputDescription">Gallery Tag</label>
                                     <select id="tag" class="form-control @error('tag') is-invalid @enderror" name="tag" required>
                                         <option selected disabled>--Select Tag--</option>
-                                        <option @if ( $gallery->tag == 'GSEC') selected @endif>GSEC</option>
+                                        <option @if ( $gallery->tag == 'GENC') selected @endif>GENC</option>
                                         <option @if ( $gallery->tag == 'CAPS') selected @endif>CAPS</option>
                                         <option @if ( $gallery->tag == 'EXEC') selected @endif>EXEC</option>
                                         <option @if ( $gallery->tag == 'MGNT') selected @endif>MGNT</option>

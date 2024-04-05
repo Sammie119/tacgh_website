@@ -110,6 +110,20 @@ if(!function_exists("get_stuff")){
     }
 }
 
+if(!function_exists("get_management")){
+    function get_management(): array
+    {
+        $staff = Staff::whereRaw("position like '%director%'")
+                ->OrWhere('is_staff_or_board', 'Leadership')->orderBy('id')->get();
+
+        if($staff){
+            return $staff->toArray();
+        }
+
+        return [];
+    }
+}
+
 if(!function_exists("get_stuff_except")){
     function get_stuff_except($status): array
     {
