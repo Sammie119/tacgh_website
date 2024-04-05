@@ -128,6 +128,7 @@ class GalleryController extends Controller
                 'height' => 1, //$request['height'],
                 'post_id' => $request['post'],
                 'tag' => $request['tag'],
+                'created_by' => get_logged_in_user_id(),
                 'updated_by' => get_logged_in_user_id(),
             ]);
         }
