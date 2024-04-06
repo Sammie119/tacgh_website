@@ -108,6 +108,54 @@
         @endisset
         <!-- End Fasting Section -->
 
+        <!-- ======= News Section ======= -->
+        <section id="testimonials" class="testimonials" style="background: linear-gradient(rgba(103, 176, 209, 0.8), rgba(103, 176, 209, 0.8)), url('{{ asset('assets/website/img/background.jpg') }}') fixed center center;">
+            <div class="container">
+                @php $news = get_home_page("News"); @endphp
+                <div class="text-center mb-4" data-aos="fade-in" data-aos-delay="100">
+                    <h2 class="text-white" style="font-weight: bolder;">{{ $news['title'] }}</h2>
+                    {{-- <p>{!! $news['description'] !!}</p> --}}
+                </div>
+
+                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+                        @forelse (get_posts() as $post)
+                            @php
+                                $date = date_create($post['created_at']);
+                            @endphp
+                            @if(get_posts_image($post['id']) != 'No Image')
+                                <div class="swiper-slide" style="position: relative;">
+                                    <div class="testimonial-item">
+                                        <img src="{{ asset(get_posts_image($post['id'])) }}" class="card-img-top img-fluid" alt="{{ $post['title'] }}" style="padding-left: 2px; padding-right: 2px;">
+                                        <div class="testimonial-box" style="margin-top: -2rem; position: absolute; padding-bottom: 0px"><h4>{{ date_format($date,"F j, Y") }}</h4></div>
+                                        <div class="testimonial-box" style="padding-top: 0px">
+                                            <h3>{{ $post['title'] }}</h3>
+                                            <small style="color: #999;">{{ $post['description'] }}</small>
+                                            <div class="text-left mt-3">
+                                                <a class="testimony-more" href="/media/news/{{ $post['id'] }}">Continue reading...</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- End testimonial item -->
+                            @endif
+                        @empty
+                            <div>
+                                No Post Found
+                            </div>
+                        @endforelse
+
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+                </div>
+
+                <div class="text-center mt-3" data-aos="fade-up" data-aos-delay="300">
+                    <a href="/media/news" class="more_arrows"><i class="bx bx-chevrons-down"></i></a>
+                </div>
+
+            </div>
+        </section><!-- End News Section -->
+
         <!-- ======= Event Section ======= -->
         <section id="services" class="services section-bg">
             <div class="container">
@@ -166,60 +214,12 @@
             </div>
         </section><!-- End Event Section -->
 
-        <!-- ======= News Section ======= -->
-        <section id="testimonials" class="testimonials">
-            <div class="container">
-                @php $news = get_home_page("News"); @endphp
-                <div class="section-title" data-aos="fade-in" data-aos-delay="100">
-                    <h2>{{ $news['title'] }}</h2>
-                    {{-- <p>{!! $news['description'] !!}</p> --}}
-                </div>
-
-                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                    <div class="swiper-wrapper">
-                        @forelse (get_posts() as $post)
-                            @php
-                                $date = date_create($post['created_at']);
-                            @endphp
-                            @if(get_posts_image($post['id']) != 'No Image')
-                                <div class="swiper-slide" style="position: relative;">
-                                    <div class="testimonial-item">
-                                        <img src="{{ asset(get_posts_image($post['id'])) }}" class="card-img-top img-fluid" alt="{{ $post['title'] }}" style="padding-left: 2px; padding-right: 2px;">
-                                        <div class="testimonial-box" style="margin-top: -2rem; position: absolute; padding-bottom: 0px"><h4>{{ date_format($date,"F j, Y") }}</h4></div>
-                                        <div class="testimonial-box" style="padding-top: 0px">
-                                            <h3>{{ $post['title'] }}</h3>
-                                            <small style="color: #999;">{{ $post['description'] }}</small>
-                                            <div class="text-left mt-3">
-                                                <a class="testimony-more" href="/media/news/{{ $post['id'] }}">Continue reading...</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- End testimonial item -->
-                            @endif
-                        @empty
-                            <div>
-                                No Post Found
-                            </div>
-                        @endforelse
-
-                    </div>
-
-                    <div class="swiper-pagination"></div>
-                </div>
-
-                <div class="text-center mt-3" data-aos="fade-up" data-aos-delay="300">
-                    <a href="/media/news" class="more_arrows"><i class="bx bx-chevrons-down"></i></a>
-                </div>
-
-            </div>
-        </section><!-- End News Section -->
-
         <!-- ======= Advertisment Section ======= -->
         @php $advert = get_home_page("Advertisment"); @endphp
         <section id="cta" class="cta" style="background: linear-gradient(rgba(103, 176, 209, 0.8), rgba(103, 176, 209, 0.8)), url('{{ asset('assets/website/img/cta-bg.jpg') }}') fixed center center;">
             <div class="container" data-aos="zoom-in">
                 <div class="text-center">
-                    <h3>{{ $advert['title'] }}</h3>
+                    <h3 class="mb-4">{{ $advert['title'] }}</h3>
                     {{-- <p> {!! $advert['description'] !!}</p> --}}
                     <img src="{{ asset(get_asset_path($advert['asset_id'])) }}" class="img-fluid" alt="Social Service">
                 </div>

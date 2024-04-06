@@ -145,6 +145,8 @@
                                 <a href="{{ get_contact_subject('Facebook') }}" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
                                 <a href="{{ get_contact_subject('Instagram') }}" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
                                 <a href="{{ get_contact_subject('Whatsapp') }}" class="google-plus" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+                                <a href="{{ get_contact_subject('Skipe') }}" class="google-plus" target="_blank"><i class="bx bxl-tiktok"></i></a>
+                                <a href="{{ get_contact_subject('Linked In') }}" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
@@ -200,7 +202,7 @@
 
         <div class="container">
             <div class="copyright">
-                Copyright &copy; {{ date('Y') }} <strong><span>The Apostolic Church-Ghana</span></strong>. All Rights Reserved
+                Copyright &copy; {{ date('Y') }} <strong><span>The Apostolic Church-Ghana</span></strong>. All Rights Reserved <br> <a href="#" class="termly-display-preferences text-white">Consent Preferences</a>
             </div>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->
@@ -227,6 +229,8 @@
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/website/js/calander_main.js') }}"></script>
     <script src="{{ asset('assets/website/js/main.js') }}"></script>
+
+    <script type="text/javascript" src="https://app.termly.io/resource-blocker/5ba2c209-3304-470d-a255-342042fc229c?autoBlock=on"></script>
     @stack('scripts')
 
 </body>

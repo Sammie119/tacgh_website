@@ -62,10 +62,10 @@
                                 @endif
                             </div>
                             <div class="text-center"><button
-                                {{-- class="g-recaptcha" --}}
+                                class="g-recaptcha"
                                 type="submit"
-                                {{-- data-sitekey="{{ env('RECAPTCHAsitekey') }}"
-                                data-callback='onRecaptchaSuccess' --}}
+                                data-sitekey="{{ env('RECAPTCHAsitekey') }}"
+                                data-callback='onRecaptchaSuccess'
                                 >Send Request</button>
                             </div>
                         </form>
@@ -102,10 +102,10 @@
                                 @endif
                             </div>
                             <div class="text-center"><button
-                                {{-- class="g-recaptcha" --}}
+                                class="g-recaptcha"
                                 type="submit"
-                                {{-- data-sitekey="{{ env('RECAPTCHAsitekey') }}"
-                                data-callback='onRecaptchaSuccess' --}}
+                                data-sitekey="{{ env('RECAPTCHAsitekey') }}"
+                                data-callback='onRecaptchaSuccess'
                                 >Send Testimony</button>
                             </div>
                         </form>

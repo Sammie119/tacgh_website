@@ -86,10 +86,10 @@
                                 {{-- <div class="sent-message">Your message has been sent. Thank you!</div> --}}
                             </div>
                             <div class="text-center"><button
-                                {{-- class="g-recaptcha" --}}
+                                class="g-recaptcha"
                                 type="submit"
-                                {{-- data-sitekey="{{ env('RECAPTCHAsitekey') }}"
-                                data-callback='onRecaptchaSuccess' --}}
+                                data-sitekey="{{ env('RECAPTCHAsitekey') }}"
+                                data-callback='onRecaptchaSuccess'
                                 >Send Message</button>
                             </div>
                         </form>

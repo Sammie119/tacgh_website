@@ -137,14 +137,14 @@ class HomeController extends Controller
 
         // dd($request->all());
 
-        // $secret = env('RECAPTCHAsecretkey');
+        $secret = env('RECAPTCHAsecretkey');
 
-        // $recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$request['g-recaptcha-response']}";
-        //     $verify = json_decode(file_get_contents($recaptchaUrl));
+        $recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$request['g-recaptcha-response']}";
+            $verify = json_decode(file_get_contents($recaptchaUrl));
 
-        // if (!$verify->success) {
-        //     return back()->with('error', 'Recaptcha failed!');
-        // }
+        if (!$verify->success) {
+            return back()->with('error', 'Recaptcha failed!');
+        }
 
         $data = [
             'name' => $request['name'],
@@ -179,14 +179,14 @@ class HomeController extends Controller
         ])->validate();
         // dd($request->all());
 
-        // $secret = '6Ld8YqMpAAAAAF0u2axUPdDEckbKHWC8fZUKvrFz';
+        $secret = '6Ld8YqMpAAAAAF0u2axUPdDEckbKHWC8fZUKvrFz';
 
-        // $recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$request['g-recaptcha-response']}";
-        //     $verify = json_decode(file_get_contents($recaptchaUrl));
+        $recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$request['g-recaptcha-response']}";
+            $verify = json_decode(file_get_contents($recaptchaUrl));
 
-        // if (!$verify->success) {
-        //     return back()->with('error', 'Recaptcha failed!');
-        // }
+        if (!$verify->success) {
+            return back()->with('error_1', 'Recaptcha failed!');
+        }
 
         $data = [
             'name' => $request['name'],
@@ -220,14 +220,14 @@ class HomeController extends Controller
         ])->validate();
         // dd($request->all());
 
-        // $secret = '6Ld8YqMpAAAAAF0u2axUPdDEckbKHWC8fZUKvrFz';
+        $secret = '6Ld8YqMpAAAAAF0u2axUPdDEckbKHWC8fZUKvrFz';
 
-        // $recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$request['g-recaptcha-response']}";
-        //     $verify = json_decode(file_get_contents($recaptchaUrl));
+        $recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$request['g-recaptcha-response']}";
+            $verify = json_decode(file_get_contents($recaptchaUrl));
 
-        // if (!$verify->success) {
-        //     return back()->with('error', 'Recaptcha failed!');
-        // }
+        if (!$verify->success) {
+            return back()->with('error_2', 'Recaptcha failed!');
+        }
 
         $data = [
             'name' => $request['name'],
